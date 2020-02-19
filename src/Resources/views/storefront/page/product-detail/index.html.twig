@@ -1,0 +1,48 @@
+{% sw_extends '@parent/storefront/page/product-detail/index.html.twig' %}
+
+{% block page_product_detail_main %}
+	<div class="row product-detail-main">
+		{% block page_product_detail_media %}
+			<div class="col-lg-5 product-detail-media">
+				{% if page.product.media %}
+					{% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {
+                                                'mediaItems': mediaItems,
+                                                'zoom': false,
+                                                'zoomModal': true,
+                                                'displayMode': 'contain',
+                                                'gutter': 5,
+                                                'minHeight': '430px',
+                                                'navigationArrows': 'inside',
+                                                'navigationDots': 'inside',
+                                                'galleryPosition': 'left',
+                                                'isProduct': true,
+                                                'fallbackImageTitle': page.product.translated.name,
+                                                'startIndexThumbnails': page.product.cover.position + 1,
+                                                'startIndexSlider': page.product.cover.position + 1
+                                            } %}
+				{% endif %}
+				<div class="buy-button">
+					{% sw_include '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+				</div>
+			</div>
+		{% endblock %}
+
+		{% block page_product_detail_buy %}
+			<div class="col-lg-7 product-detail-buy">
+				{% block page_product_detail_tabs_custom %}
+					<div class="product-detail-tabs">
+						{% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+					</div>
+				{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+    <style>
+	.buy-button {
+		width: 80%;
+		margin: auto;
+	}
+</style>
+{% endblock %}
+{% block page_product_detail_tabs %}
+{% endblock %}

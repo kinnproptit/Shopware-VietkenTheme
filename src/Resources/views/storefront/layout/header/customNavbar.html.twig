@@ -1,7 +1,7 @@
 {% block custom_navbar %}
-	<ul class="navList" id="menu">
+	<ul class="navList visible-search-bar" id="menu">
 		<li class="bg-cl">
-			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="#" title="Menu">Produkte</a>
+			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="#" title="Menu">Produkte</a>
 			<div class="submenu">
 				<ul class="menus">
 					{% block custom_navigation %}
@@ -10,13 +10,13 @@
 
 		</li>
 		<li class="bg-cl">
-			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
+			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
 		</li>
 		<li class="bg-cl">
-			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
+			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
 		</li>
 		<li class="bg-cl">
-			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
+			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
 		</li>
 	</ul>
 
@@ -29,9 +29,9 @@
 			list-style: none;
 		}
 
-		.py17 {
-			padding-top: 17px;
-			padding-bottom: 20px;
+		.py13 {
+			padding-top: 13px;
+			padding-bottom: 13px;
 		}
 
 		.navList .bg-cl {
@@ -48,7 +48,6 @@
 
 		.navList .bg-cl a:hover{
 			background-color: #ffffff;
-			padding: 21px;
 		}
 
 		.w-cl {

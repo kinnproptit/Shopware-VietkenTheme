@@ -1,12 +1,12 @@
 {% block company_information %}
-	<section class="container px15" style="margin-bottom: 70px">
-		<div class="row center-xs company_information">
-			<div class="company_information_background" style="margin-bottom: 70px;">
+	{# <section class="container px15" style="margin-bottom: 70px"> #}
+		<div class="" style="position: absolute; top: 12%; display: flex; justify-content: center; width: 70%">
+			<div class="company_information_background" style="">
 				<header class="col-md-12">
-					<h2 class="align-center cl-accent">Bleib gesund mit Selbstheilung</h2>
+					<h2 class="align-center cl-accent" style="font-size: 36px; margin: 2rem;">Bleib gesund mit Selbstheilung</h2>
 					<h4 class="align-center">'Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?</h4>
 				</header>
-				<div class="center-xs">
+				<div class="center-xs" style="margin: 2rem;">
 					<div class="usp-slider">
 						<a href="#" class="usp-icon active" onclick="onClick(0)">
 							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/like.svg"/>
@@ -27,7 +27,8 @@
 							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/smile.svg"/>
 						</a>
 						<!-- <span class="arrow" /> -->
-						<div class="usp-bubbles">
+					</div>
+					<div class="usp-bubbles" style="width: 80%; margin: auto; padding: 2rem">
 							<div class="inner-wrapper">
 								<span class="usp-bubble active-content">
 									<div>
@@ -74,11 +75,10 @@
 								</span>
 							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	{# </section> #}
 {% endblock %}
 
 <script>
@@ -155,19 +155,12 @@ itemsContent[index].classList.add('active-content');
 	.company_information li span {
 		margin-left: 0.5rem;
 	}
-	@media(min-width: 900px) {
-		.company_information_background {
-			margin-top: -12%
-		}
-	}
 
 	.usp-slider {
-		position: relative;
 		text-align: center;
 		margin-left: 5px;
 		margin-right: 5px;
-		height: 50px;
-		margin-bottom: 105px;
+		margin: 20px 0;
 	}
 	@media screen and(min-width: 769px) {
 		.usp-slider {
@@ -184,11 +177,6 @@ itemsContent[index].classList.add('active-content');
 			margin-top: 100px;
 		}
 	}
-
-	// .usp-slider a {
-	// width: 20%;
-	// float: left;
-	// }
 
 	.usp-slider a.active img {
 		background-color: #e2e2e2;
@@ -245,20 +233,11 @@ itemsContent[index].classList.add('active-content');
 		transform: translateY(-100%) translateX(-50%);
 	}
 
-	.usp-slider .usp-bubbles {
-		position: absolute;
-		top: 100%;
-		left: 5px;
-		right: 5px;
+	.usp-bubbles {
 		background-color: #e2e2e2;
 		border-radius: 20px;
-		margin-top: 35px;
 		font-size: 16px;
 		line-height: 22px;
-		-webkit-transition: all 0.4s;
-		-moz-transition: all 0.4s;
-		-ms-transition: all 0.4s;
-		-o-transition: all 0.4s;
 		transition: all 0.4s;
 	}
 

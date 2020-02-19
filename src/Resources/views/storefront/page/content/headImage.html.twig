@@ -1,15 +1,10 @@
-<section class="head-image w-100 bg-cl-th-accent cl-white">
+{% block head_image %}
+	<section class="head-image w-100 bg-cl-th-accent cl-white" style="position: relative; display: flex; justify-content: center;">
 	<div class="container2 w-100 h-100 cl-black" style="background-image: url('https://www.uno.edu/sites/default/files/2019-08/healthcareBSMgmtbanner2.jpg' );">
-		<div class="head-image-content">
-			<h1 class="title">
-				Walk the walk.
-			</h1>
-			<p class="subtitle mb0 serif h3">
-				A fashion can become the prevailing style in behaviour or manifest the newest creations of designers, technologists, engineers, and design managers.
-			</p>
-		</div>
 	</div>
+	{% sw_include '@VietkenDesign/storefront/page/content/companyInformation.html.twig' %}
 </section>
+{% endblock %}
 
 
 <style>
