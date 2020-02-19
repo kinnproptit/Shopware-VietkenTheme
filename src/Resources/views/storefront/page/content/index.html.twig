@@ -1,0 +1,31 @@
+{% sw_extends '@parent/storefront/page/content/index.html.twig' %}
+
+{% block base_main_inner %}
+	{% sw_include '@VietkenDesign/storefront/page/content/headImage.html.twig' %}
+
+	{% sw_include '@VietkenDesign/storefront/page/content/companyInformation.html.twig' %}
+
+	{% block health_needs %}
+		<section class="container px15" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+			<div>
+				<header class="col-md-12">
+					<h2 class="align-center cl-accent">Support for your health needs.</h2>
+					<p class="align-center cl-accent">We believe nature knows what's best, and that's why our passion is in helping you meet your goals and stay well the natural way.</p>
+				</header>
+			</div>
+			{% sw_include '@VietkenDesign/storefront/page/content/healthSlider.html.twig' %}
+
+		</section>
+	{% endblock %}
+
+	{{ parent() }}
+
+	<style>
+		.cl-accent {
+			color: #4f4f4f;
+		}
+		.align-center {
+			text-align: center;
+		}
+	</style>
+{% endblock %}

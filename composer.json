@@ -1,0 +1,19 @@
+{
+    "name": "vietkentech/vietken-design",
+    "description": "Redesign the page by VietkenTech",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "VietkenDesign\\": "src/"
+        }
+    },
+    "version": "1.0",
+    "extra": {
+        "shopware-plugin-class": "VietkenDesign\\VietkenDesign",
+        "label": {
+            "de-DE": "Skeleton plugin",
+            "en-GB": "Skeleton plugin"
+        }
+    }
+}

@@ -1,0 +1,111 @@
+{% block custom_navbar %}
+	<ul class="navList" id="menu">
+		<li class="bg-cl">
+			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="#" title="Menu">Produkte</a>
+			<div class="submenu">
+				<ul class="menus">
+					{% block custom_navigation %}
+						{% sw_include '@VietkenDesign/storefront/layout/header/custom-navigation.html.twig' %}
+					{% endblock %}
+
+		</li>
+		<li class="bg-cl">
+			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
+		</li>
+		<li class="bg-cl">
+			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
+		</li>
+		<li class="bg-cl">
+			<a class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
+		</li>
+	</ul>
+
+	<style>
+		.navList {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: space-around;
+			list-style: none;
+		}
+
+		.py17 {
+			padding-top: 17px;
+			padding-bottom: 20px;
+		}
+
+		.navList .bg-cl {
+			background-color: #795548;
+		}
+
+		.navList .bg-cl:hover {
+			background-color: #ffffff;
+		}
+
+		.navList .bg-cl:hover a {
+			color: black !important;
+		}
+
+		.navList .bg-cl a:hover{
+			background-color: #ffffff;
+			padding: 21px;
+		}
+
+		.w-cl {
+			// font-weight: bold;
+			color: white;
+		}
+
+		.w-cl:hover {
+			color: #000000;
+		}
+
+		.submenu {
+			height: auto;
+			max-width: 400px;
+			position: absolute;
+			z-index: 99;
+			display: none;
+			border: 0;
+			background-color: #fefefe;
+			padding: 0.75rem 1.5rem !important;
+			text-align: left;
+		}
+
+		ul.menus {
+			max-width: 75.25rem;
+			width: 100%;
+			border-left: 0;
+			margin: auto;
+			padding-left: 0;
+		}
+
+		.menus li {
+			display: block;
+			width: 100%;
+			font: 12px Arial;
+			padding: 0.75rem;
+		}
+
+		#menu li:hover .submenu {
+			display: block;
+		}
+
+		#menu li:hover .submenu .w-cl {
+			color: black;
+		}
+
+		.navList .bg-cl:hover a {
+			color: black;
+		}
+
+		#menu a {
+			color: white;
+		}
+
+		.fs-small {
+			font-size: 14px;
+		}
+	</style>
+
+{% endblock %}

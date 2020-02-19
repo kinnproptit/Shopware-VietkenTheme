@@ -1,0 +1,278 @@
+{% block company_information %}
+	<section class="container px15" style="margin-bottom: 70px">
+		<div class="row center-xs company_information">
+			<div class="company_information_background" style="margin-bottom: 70px;">
+				<header class="col-md-12">
+					<h2 class="align-center cl-accent">Bleib gesund mit Selbstheilung</h2>
+					<h4 class="align-center">'Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?</h4>
+				</header>
+				<div class="center-xs">
+					<div class="usp-slider">
+						<a href="#" class="usp-icon active" onclick="onClick(0)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/like.svg"/>
+						</a>
+						<a href="#" class="usp-icon" onclick="onClick(1)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/star.svg"/>
+						</a>
+						<a href="#" class="usp-icon" onclick="onClick(2)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/light.svg"/>
+						</a>
+						<a href="#" class="usp-icon" onclick="onClick(3)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/grow.svg"/>
+						</a>
+						<a href="#" class="usp-icon" onclick="onClick(4)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/design.svg"/>
+						</a>
+						<a href="#" class="usp-icon" onclick="onClick(5)">
+							<img src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/smile.svg"/>
+						</a>
+						<!-- <span class="arrow" /> -->
+						<div class="usp-bubbles">
+							<div class="inner-wrapper">
+								<span class="usp-bubble active-content">
+									<div>
+										<strong>Naturbelassen:
+										</strong>
+										Wirkstoffe aus natürlicher, pflanzlicher Quelle und in bioaktivster Form.
+									</div>
+								</span>
+								<span class="usp-bubble">
+									<div>
+										<strong>Premium Qualität:
+										</strong>
+										Aus den weltweit besten Anbaugebieten und von den führenden Herstellern.
+									</div>
+								</span>
+								<span class="usp-bubble">
+									<div>
+										<strong>Pure-Reinheit:
+										</strong>
+										Pure Wirkstoffe ohne chemische Zusätze. Frei von Belastungen und Gentechnik.
+									</div>
+								</span>
+								<span class="usp-bubble">
+									<div>
+										<strong>Innovation:
+										</strong>
+										Kooperation und Erfahrungstausch mit Apotheken, Kliniken, Ärzten, Heilpraktikern und ganzheitlichen Therapeuten sowie führenden Wissenschaftlern und Qualitäts-Herstellern zur Entwicklung einzigartiger, optimierter Rezepturen und Produkte für Sie.
+
+									</div>
+								</span>
+								<span class="usp-bubble">
+									<div>
+										<strong>Nachhaltigkeit:
+										</strong>
+										Nachhaltig angebaute Rohstoffe. Umweltfreundliche Verpackungen aus Glas oder kompostierbarer Stärke.
+									</div>
+								</span>
+								<span class="usp-bubble">
+									<div>
+										<strong>Transparenz:
+										</strong>
+										Täglich geöffneter Store - in Köln Innenstadt. Volldeklaration aller Inhaltsstoffe und Verfahren.
+									</div>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+<script>
+	function onClick(index) {
+const itemsIcon = document.querySelectorAll('.usp-icon');
+console.log(itemsIcon)
+const itemsContent = document.querySelectorAll('.usp-bubble');
+Array.from(itemsIcon).map(item => {
+if (item.classList.contains('active')) 
+item.classList.remove('active');
+
+
+
+});
+
+itemsIcon[index].classList.add('active');
+Array.from(itemsContent).map(item => {
+if (item.classList.contains('active-content')) 
+item.classList.remove('active-content');
+
+
+
+});
+itemsContent[index].classList.add('active-content');
+}
+</script>
+
+<style>
+
+	.usp-bubble {
+		display: none;
+	}
+
+	.active-content {
+		display: block !important;
+	}
+
+	.center-xs {
+		-ms-flex-pack: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.px15 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.company_information_background {
+		min-width: 70%;
+		background: #ffffff;
+		background: rgba(255, 255, 255, 0.8);
+	}
+
+	.split {
+		display: flex;
+	}
+	.side {
+		width: 50%;
+	}
+
+	.fa-ul {
+		list-style: none;
+		padding: 0.75rem;
+		margin: 0;
+	}
+
+	.company_information li {
+		display: flex;
+		align-items: center;
+		margin: 1.5rem 0;
+	}
+
+	.company_information li span {
+		margin-left: 0.5rem;
+	}
+	@media(min-width: 900px) {
+		.company_information_background {
+			margin-top: -12%
+		}
+	}
+
+	.usp-slider {
+		position: relative;
+		text-align: center;
+		margin-left: 5px;
+		margin-right: 5px;
+		height: 50px;
+		margin-bottom: 105px;
+	}
+	@media screen and(min-width: 769px) {
+		.usp-slider {
+			height: 75px;
+			margin-bottom: 85px;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@media screen and(max-width: 768px) {
+		.company_information_background {
+			margin-top: 100px;
+		}
+	}
+
+	// .usp-slider a {
+	// width: 20%;
+	// float: left;
+	// }
+
+	.usp-slider a.active img {
+		background-color: #e2e2e2;
+	}
+
+	.usp-slider a:hover img,
+	.usp-slider a.acttive img {
+		fill: #3c3c3e;
+	}
+
+	.usp-slider a img {
+		fill: #a3a3a3;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+	}
+
+	.usp-slider a img {
+		width: 75px;
+		height: 75px;
+	}
+
+	@media screen and(min-width: 600px) {
+		.usp-slider a img {
+			width: 60px;
+			height: 60px;
+		}
+	}
+
+	.usp-slider .arrow {
+		position: absolute;
+		bottom: -35px;
+		// top: 110px;
+		left: 0;
+		transition: 0.3s all;
+		z-index: 2;
+		width: 20%;
+		text-align: center;
+	}
+
+	.usp-slider .arrow:before {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 12px 10px 12px;
+		border-color: transparent transparent #e2e2e2 transparent;
+		transition-property: left;
+		transition-duration: 0.6s;
+		transform: translateY(-100%) translateX(-50%);
+	}
+
+	.usp-slider .usp-bubbles {
+		position: absolute;
+		top: 100%;
+		left: 5px;
+		right: 5px;
+		background-color: #e2e2e2;
+		border-radius: 20px;
+		margin-top: 35px;
+		font-size: 16px;
+		line-height: 22px;
+		-webkit-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+		-ms-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		transition: all 0.4s;
+	}
+
+	@media screen and(min-width: 600px) {
+		.usp-slider .usp-bubbles {
+			;
+			// left: -100px;
+			// right: -100px;
+		}
+	}
+
+	.usp-slider .usp-bubbles .inner-wrapper {
+		display: inline-block;
+		max-width: 100%;
+		padding: 20px 40px;
+	}
+</style>
