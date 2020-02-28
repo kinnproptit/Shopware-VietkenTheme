@@ -1,0 +1,49 @@
+{% sw_extends '@parent/storefront/page/product-detail/description.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+	{{parent()}}
+	{% block youtube_video %}
+		{% if page.product.translated.customFields.custom_product_information_youtube != null %}
+			<div style="text-align: center;">
+				<iframe width="400" height="345" src="https://www.youtube.com/embed/{{page.product.translated.customFields.custom_product_information_youtube}}?controls=0"></iframe>
+			</div>
+		{% endif %}
+	{% endblock %}
+	{% block icons %}
+		{# icons #}
+		<div class="iconics">
+
+			{% if page.product.translated.customFields.custom_product_information_isVegan == true %}
+				<div class="icon-product">
+					Vegan
+				</div>
+			{% endif %}
+
+			{% if page.product.translated.customFields.custom_product_information_organic == true %}
+				<div class="icon-product">
+					Organic
+				</div>
+			{% endif %}
+
+			{% if page.product.translated.customFields.custom_product_information_less_sugar == true %}
+				<div class="icon-product">
+					Less Sugar
+				</div>
+			{% endif %}
+
+			{% if page.product.translated.customFields.custom_product_information_lactose_free == true %}
+				<div class="icon-product">
+					Lactose Free
+				</div>
+			{% endif %}
+
+			{% if page.product.translated.customFields.custom_product_information_soya_free == true %}
+				<div class="icon-product">
+					Soya Free
+				</div>
+			{% endif %}
+
+		</div>
+
+	{% endblock %}
+{% endblock %}
