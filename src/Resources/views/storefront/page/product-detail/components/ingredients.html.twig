@@ -1,7 +1,20 @@
 {% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
 
 {% block utilities_offcanvas_content %}
-    <pre>
-        {{ dump() }}
-    </pre>
+	{% block ingredients_information %}
+		<div class="ingredients-information">
+			<h2>Ingredients: </h2>
+			{% if page.product.translated.customFields.custom_ingredient_name_information != null %}
+				<p>{{page.product.translated.customFields.custom_ingredient_name_information}}</p>
+			{% endif %}
+		</div>
+	{% endblock %}
+	{% block nutritional_information %}
+		<div class="nutritional-information">
+            <h2>Nutritional: </h2>
+			{% if page.product.translated.customFields.custom_ingredient_name_nutritional_information != null %}
+				<p>{{page.product.translated.customFields.custom_ingredient_name_nutritional_information}}</p>
+			{% endif %}
+		</div>
+	{% endblock %}
 {% endblock %}
