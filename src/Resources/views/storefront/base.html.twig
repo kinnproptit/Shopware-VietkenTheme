@@ -5,5 +5,23 @@
 {% endblock %}
 
 {% block base_footer %}
-	{% sw_include '@Storefront/storefront/layout/footer/footer.html.twig' %}
-</footer>{% endblock %}
+	<footer>
+		{% sw_include '@Storefront/storefront/layout/footer/footer.html.twig' %}
+	</footer>
+{% endblock %}
+
+{% block base_main_inner %}
+	<div class="container">
+		{% block base_main_container %}
+			<div class="container-main">
+				{% block base_breadcrumb %}
+					{% if breadcrumbList %}
+						{% sw_include '@Storefront/storefront/layout/breadcrumb.html.twig' %}
+					{% endif %}
+				{% endblock %}
+
+				{% block base_content %}{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+{% endblock %}
