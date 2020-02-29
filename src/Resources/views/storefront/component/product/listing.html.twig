@@ -4,20 +4,59 @@
 
 {% endblock %} #}
 
+{% block element_product_listing_pagination_nav_actions %}
+	{% if activeRoute != 'frontend.home.page' %}
+		<div
+			class="cms-element-product-listing-actions row justify-content-between">
+			{# <div class="col-md-auto">
+																					{% block element_product_listing_pagination_nav_top %}
+																						{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+																		                                    entities: searchResult,
+																		                                    criteria: searchResult.criteria
+																		                                } %}
+																					{% endblock %}
+																				</div> #}
+
+			<div class="col-md-auto">
+				{% block element_product_listing_sorting %}
+					{% sw_include '@Storefront/storefront/component/sorting.html.twig' with { current: searchResult.sorting, sortings: searchResult.sortings } %}
+				{% endblock %}
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
 {% block element_product_listing_col %}
-	{% for product in searchResult %}
-		{# <pre>
-		            {{ dump() }}
-		        </pre> #}
-		{% if product.translated.customFields.custom_top_seller_mark == true %}
-			<div class="cms-listing-col {{ listingColumns }}">
-				{% block element_product_listing_box %}
-					{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+	{% if activeRoute == 'frontend.home.page' %}
+		<section class="container" style="">
+			<header class="col-md-12">
+				<h2 class="align-center cl-accent">Most popular</h2>
+			</header>
+			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center;">
+			{% endif %}
+			{% for product in searchResult %}
+				{% if product.translated.customFields.custom_top_seller_mark == true %}
+					<div class="cms-listing-col {{ listingColumns }}">
+						{% block element_product_listing_box %}
+							{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
                                             'layout': boxLayout,
                                             'displayMode': displayMode
                                         } %}
-				{% endblock %}
+						{% endblock %}
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% if activeRoute == 'frontend.home.page' %}
 			</div>
-		{% endif %}
-	{% endfor %}
+		</section>
+	{% endif %}
+{% endblock %}
+
+{% block element_product_listing_pagination_nav_bottom %}
+	{% if activeRoute != 'frontend.home.page' %}
+		{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+                        entities: searchResult,
+                        criteria: searchResult.criteria
+                    } %}
+	{% endif %}
 {% endblock %}
