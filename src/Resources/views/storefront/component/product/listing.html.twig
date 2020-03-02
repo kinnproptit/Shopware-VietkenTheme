@@ -49,7 +49,7 @@
 			{% if activeRoute == 'frontend.home.page' %}
 			</div>
 		</section>
-	{% elseif activeRoute = 'frontend.all.product' %}
+	{% elseif activeRoute == 'frontend.all.product' %}
 		{% for product in searchResult %}
 			<div class="cms-listing-col {{ listingColumns }}">
 				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
