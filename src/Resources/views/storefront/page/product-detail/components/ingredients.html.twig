@@ -2,38 +2,50 @@
 
 {% block utilities_offcanvas_content %}
 	{% block ingredients_information %}
-		<div class="ingredients-information">
-			<h2>Ingredients:
-			</h2>
-			{% if page.product.translated.customFields.custom_ingredient_name_information != null %}
+		{% if page.product.translated.customFields.custom_ingredient_name_information %}
+			<div class="ingredients-information">
+				<h2>Ingredients:
+				</h2>
 				<p>{{page.product.translated.customFields.custom_ingredient_name_information}}</p>
-			{% endif %}
-		</div>
+			</div>
+		{% endif %}
 	{% endblock %}
 	{% block nutritional_information %}
-		<div class="nutritional-information">
-			<table id="ingredients">
-				<tr>
-					<th>
-						<h2>Nutritional</h2>
-					</th>
-					<th>per 100g</th>
-				</tr>
-				{% for label, value in page.product.translated.customFields %}
-					{% if value is not iterable %}
-						{% if label matches "/^custom_ingredient_name_nutritional_*/" %}
-							{% set words = label|split('_', 5) %}
-							<tr>
-								<th>{{words[4]|capitalize}}</th>
-								<th>{{value|e}}
-									g</th>
-							</tr>
-						{% endif %}
-					{% endif %}
+		{% set count = 0 %}
+		{% for label, value in page.product.translated.customFields %}
+			{% if value is not iterable %}
+				{% if label matches "/^custom_ingredient_name_nutritional_*/" %}
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endif %}
 
-				{% endfor %}
-			</table>
-		</div>
+		{% endfor %}
+		{% if count > 0 %}
+			<div class="nutritional-information">
+				<table id="ingredients">
+					<tr>
+						<th>
+							<h2>Nutritional</h2>
+						</th>
+						<th>per 100g</th>
+					</tr>
+					{% for label, value in page.product.translated.customFields %}
+						{% if value is not iterable %}
+							{% if label matches "/^custom_ingredient_name_nutritional_*/" %}
+								{% set words = label|split('_', 5) %}
+								<tr>
+									<th>{{words[4]|capitalize}}</th>
+									<th>{{value|e}}
+										g</th>
+								</tr>
+							{% endif %}
+						{% endif %}
+
+					{% endfor %}
+				</table>
+			</div>
+		{% endif %}
+
 	{% endblock %}
 	<style>
 		#ingredients {
@@ -41,8 +53,7 @@
 			width: 100%;
 		}
 		#ingredients td,
-		#ingredients th {
-		}
+		#ingredients th {}
 
 		#ingredients tr:nth-child(even) {
 			background-color: #f2f2f2;

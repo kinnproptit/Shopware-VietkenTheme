@@ -56,17 +56,54 @@
 
 		{% block component_product_box_info %}
 			<div class="product-info product-info-fix">
+				{% block icons %}
+					<div class="health-icons">
+						{% if product.customFields.custom_product_information_less_sugar %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar.svg"/>
+							</div>
+						{% endif %}
+
+						{% if product.customFields.custom_product_information_lactose_free %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-free.svg"/>
+							</div>
+						{% endif %}
+
+
+						{% if product.customFields.custom_product_information_organic %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic.svg"/>
+							</div>
+						{% endif %}
+
+
+						{% if product.customFields.custom_product_information_isVegan %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan.svg"/>
+							</div>
+						{% endif %}
+
+
+						{% if product.customFields.custom_product_information_soya_free %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free.svg"/>
+							</div>
+						{% endif %}
+
+					</div>
+				{% endblock %}
 				{% block component_product_box_rating %}
 					{# {% if shopware.config.detail.showReviews %}
-						<div class="product-rating">
-							{% if product.ratingAverage %}
-								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-                                                points: product.ratingAverage,
-                                                style: 'text-primary'
-                                            } %}
-							{% endif %}
-						</div>
-					{% endif %} #}
+																						<div class="product-rating">
+																							{% if product.ratingAverage %}
+																								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+																                                                points: product.ratingAverage,
+																                                                style: 'text-primary'
+																                                            } %}
+																							{% endif %}
+																						</div>
+																					{% endif %} #}
 				{% endblock %}
 
 				{% block component_product_box_name %}
@@ -92,17 +129,29 @@
 		{% endblock %}
 	</div>
 
-    <style>
-        .card-body-fix {
-            padding: 0 !important;
-        }
+	<style>
+		.card-body-fix {
+			padding: 0 !important;
+		}
 
-        .product-image-fix {
-            margin-bottom: 0 !important;
-        }
+		.product-image-fix {
+			margin-bottom: 0 !important;
+		}
 
-        .product-info-fix {
-            padding: 1rem !important;
-        }
-    </style>
+		.product-info-fix {
+			padding: 1rem !important;
+		}
+
+		.health-icons {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			margin-bottom: 30px;
+		}
+
+		.img-icon {
+			width: 30%;
+		}
+	</style>
 {% endblock %}

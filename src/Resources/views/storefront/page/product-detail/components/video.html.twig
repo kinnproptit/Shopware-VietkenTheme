@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+	{% block youtube_video %}
+		<div style="text-align: center;">
+			<iframe width="100%" height="345" src="https://www.youtube.com/embed/{{page.product.translated.customFields.custom_product_information_youtube}}?controls=0"></iframe>
+		</div>
+	{% endblock %}
+{% endblock %}

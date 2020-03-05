@@ -3,12 +3,7 @@
 {% block utilities_offcanvas_content %}
 	{% block how_to_use %}
 		<div class="how-to-use">
-			{% if page.product.translated.customFields.custom_how_to_use_information != null %}
-				{{page.product.translated.customFields.custom_how_to_use_information}}
-			{% endif %}
+			{{page.product.translated.customFields.custom_how_to_use_information}}
 		</div>
 	{% endblock %}
-    {# <pre>
-        {{ dump() }}
-    </pre> #}
 {% endblock %}

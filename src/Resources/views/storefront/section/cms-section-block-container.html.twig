@@ -39,26 +39,37 @@
 				{% else %}
 					<div class="cms-block {{ blockClasses|join(' ') }}" style="{% if blockBgColor %} background-color: {{ blockBgColor }};{% endif %}{% if blockBgImg %}background-image: url({{ blockBgImg }}); background-size: {{ block.backgroundMediaMode }};{% endif %}">
 					{% endif %}
-				{% elseif block.position == 0 and blockClasses|join(' ') == "pos-0 cms-block-image-text" %}
-					<div></div>
-				{% elseif block.position == 2%}
-					<div class="col-lg-10 cms-block {{ blockClasses|join(' ') }}" style="{% if blockBgColor %} background-color: {{ blockBgColor }};{% endif %}{% if blockBgImg %}background-image: url({{ blockBgImg }}); background-size: {{ block.backgroundMediaMode }};{% endif %}">
+			{% elseif block.position == 0 and blockClasses|join(' ') == "pos-0 cms-block-image-text" %}
+				</div>
+			{% elseif block.position == 2%}
+				<div class="col-lg-10 cms-block {{ blockClasses|join(' ') }}" style="{% if blockBgColor %} background-color: {{ blockBgColor }};{% endif %}{% if blockBgImg %}background-image: url({{ blockBgImg }}); background-size: {{ block.backgroundMediaMode }};{% endif %}">
 
-					{% else %}
-						<div class="cms-block {{ blockClasses|join(' ') }}" style="{% if blockBgColor %} background-color: {{ blockBgColor }};{% endif %}{% if blockBgImg %}background-image: url({{ blockBgImg }}); background-size: {{ block.backgroundMediaMode }};{% endif %}">
-
-						{% endif %}
-
+				{% else %}
+					<div class="cms-block {{ blockClasses|join(' ') }}" style="{% if blockBgColor %} background-color: {{ blockBgColor }};{% endif %}{% if blockBgImg %}background-image: url({{ blockBgImg }}); background-size: {{ block.backgroundMediaMode }};{% endif %}">
 
 					{% endif %}
-					{% block section_content_block_container %}
-						<div class="cms-block-container">
-							{% block section_content_block_row %}
-								<div class="cms-block-container-row row cms-row {{ sidebarClasses }}">
-									{% sw_include "@Storefront/storefront/block/cms-block-" ~ block.type ~ ".html.twig" ignore missing %}
-								</div>
-							{% endblock %}
-						</div>
-					{% endblock %}
-				</div>
-			{% endblock %}
+
+
+				{% endif %}
+				{% block section_content_block_container %}
+					<div class="cms-block-container">
+						{% block section_content_block_row %}
+							<div class="cms-block-container-row row cms-row {{ sidebarClasses }}">
+								{% sw_include "@Storefront/storefront/block/cms-block-" ~ block.type ~ ".html.twig" ignore missing %}
+							</div>
+						{% endblock %}
+					</div>
+				{% endblock %}
+			</div>
+
+			<style>
+				.cms-block-image-text {
+					display: none;
+				}
+				@media(min-width: 991px) {
+					.cms-block-image-text {
+						display: none;
+					}
+				}
+			</style>
+		{% endblock %}
