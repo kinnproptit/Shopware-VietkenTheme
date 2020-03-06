@@ -6,7 +6,7 @@
 	{% block icons %}
 		<div class="health-icons">
 			{% for key, property in page.product.sortedProperties.elements %}
-				{% if property.name == "Health" %}
+				{% if property.id == "2087615072414d3699a35fddf9883f2b" %}
 					{% for index, option in property.options.elements %}
 						{% if option.name == "less sugar" %}
 							<div class="img-icon">
@@ -20,7 +20,7 @@
 						{% endif %}
 						{% if option.name == "organic" %}
 							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic-70px.svg.svg"/>
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic-70px.svg"/>
 							</div>
 						{% endif %}
 						{% if option.name == "lactose free" %}
@@ -44,7 +44,7 @@
 	<style>
 		.health-icons {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			align-items: center;
 			flex-wrap: wrap;
 			margin-bottom: 30px;
@@ -56,6 +56,10 @@
 
 		th.properties-label {
 			padding-left: 0 !important;
+		}
+
+		.icon-health {
+			width: 70px;
 		}
 	</style>
 {% endblock %}

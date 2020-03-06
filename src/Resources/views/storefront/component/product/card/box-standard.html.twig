@@ -1,10 +1,11 @@
 {% sw_extends '@parent/storefront/component/product/card/box-standard.html.twig' %}
 
 {% block component_product_box_content %}
-	<div class="card-body card-body-fix">
-	{# <pre>
-		{{ dump() }}
-	</pre> #}
+	<div
+		class="card-body card-body-fix">
+		{# <pre>
+				{{ dump(product) }}
+			</pre> #}
 		{% block component_product_box_badges %}
 			{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
 		{% endblock %}
@@ -59,54 +60,55 @@
 
 		{% block component_product_box_info %}
 			<div class="product-info product-info-fix">
-				{% block icons %}
+				{# {% block icons %}
 					<div class="health-icons">
-						{# {% if product.customFields.custom_product_information_less_sugar %}
-							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar.svg"/>
-							</div>
-						{% endif %}
+						{% for key, property in product.sortedProperties.elements %}
+							{% if property.name == "Health" %}
+								{% for index, option in property.options.elements %}
+									{% if option.name == "less sugar" %}
+										<div class="img-icon">
+											<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar-30px.svg"/>
+										</div>
+									{% endif %}
+									{% if option.name == "vegan" %}
+										<div class="img-icon">
+											<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan-30px.svg"/>
+										</div>
+									{% endif %}
+									{% if option.name == "organic" %}
+										<div class="img-icon">
+											<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic-30px.svg"/>
+										</div>
+									{% endif %}
+									{% if option.name == "lactose free" %}
+										<div class="img-icon">
+											<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-30px.svg"/>
+										</div>
+									{% endif %}
+									{% if option.name == "soya free" %}
+										<div class="img-icon">
+											<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-30px.svg"/>
+										</div>
+									{% endif %}
 
-						{% if product.customFields.custom_product_information_lactose_free %}
-							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-free.svg"/>
-							</div>
-						{% endif %}
+								{% endfor %}
+							{% endif %}
 
-
-						{% if product.customFields.custom_product_information_organic %}
-							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic.svg"/>
-							</div>
-						{% endif %}
-
-
-						{% if product.customFields.custom_product_information_isVegan %}
-							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan.svg"/>
-							</div>
-						{% endif %}
-
-
-						{% if product.customFields.custom_product_information_soya_free %}
-							<div class="img-icon">
-								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free.svg"/>
-							</div>
-						{% endif %} #}
+						{% endfor %}
 
 					</div>
-				{% endblock %}
+				{% endblock %} #}
 				{% block component_product_box_rating %}
 					{# {% if shopware.config.detail.showReviews %}
-																						<div class="product-rating">
-																							{% if product.ratingAverage %}
-																								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-																                                                points: product.ratingAverage,
-																                                                style: 'text-primary'
-																                                            } %}
-																							{% endif %}
-																						</div>
-																					{% endif %} #}
+																											<div class="product-rating">
+																												{% if product.ratingAverage %}
+																													{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+																					                                                points: product.ratingAverage,
+																					                                                style: 'text-primary'
+																					                                            } %}
+																												{% endif %}
+																											</div>
+																										{% endif %} #}
 				{% endblock %}
 
 				{% block component_product_box_name %}
