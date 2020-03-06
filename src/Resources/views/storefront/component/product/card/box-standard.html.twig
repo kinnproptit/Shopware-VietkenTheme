@@ -2,6 +2,9 @@
 
 {% block component_product_box_content %}
 	<div class="card-body card-body-fix">
+	{# <pre>
+		{{ dump() }}
+	</pre> #}
 		{% block component_product_box_badges %}
 			{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
 		{% endblock %}
@@ -58,7 +61,7 @@
 			<div class="product-info product-info-fix">
 				{% block icons %}
 					<div class="health-icons">
-						{% if product.customFields.custom_product_information_less_sugar %}
+						{# {% if product.customFields.custom_product_information_less_sugar %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar.svg"/>
 							</div>
@@ -89,7 +92,7 @@
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free.svg"/>
 							</div>
-						{% endif %}
+						{% endif %} #}
 
 					</div>
 				{% endblock %}

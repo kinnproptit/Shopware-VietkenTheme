@@ -5,39 +5,39 @@
 
 	{% block icons %}
 		<div class="health-icons">
-			{% if page.product.translated.customFields.custom_product_information_less_sugar %}
-				<div class="img-icon">
-					<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar.svg"/>
-				</div>
-			{% endif %}
+			{% for key, property in page.product.sortedProperties.elements %}
+				{% if property.name == "Health" %}
+					{% for index, option in property.options.elements %}
+						{% if option.name == "less sugar" %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar-70px.svg"/>
+							</div>
+						{% endif %}
+						{% if option.name == "vegan" %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan-70px.svg"/>
+							</div>
+						{% endif %}
+						{% if option.name == "organic" %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic-70px.svg.svg"/>
+							</div>
+						{% endif %}
+						{% if option.name == "lactose free" %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-free-70px.svg"/>
+							</div>
+						{% endif %}
+						{% if option.name == "soya free" %}
+							<div class="img-icon">
+								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free-70px.svg"/>
+							</div>
+						{% endif %}
 
-			{% if page.product.translated.customFields.custom_product_information_lactose_free %}
-				<div class="img-icon">
-					<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-free.svg"/>
-				</div>
-			{% endif %}
+					{% endfor %}
+				{% endif %}
 
-
-			{% if page.product.translated.customFields.custom_product_information_organic %}
-				<div class="img-icon">
-					<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic.svg"/>
-				</div>
-			{% endif %}
-
-
-			{% if page.product.translated.customFields.custom_product_information_isVegan %}
-				<div class="img-icon">
-					<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan.svg"/>
-				</div>
-			{% endif %}
-
-
-			{% if page.product.translated.customFields.custom_product_information_soya_free %}
-				<div class="img-icon">
-					<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free.svg"/>
-				</div>
-			{% endif %}
-
+			{% endfor %}
 		</div>
 	{% endblock %}
 
