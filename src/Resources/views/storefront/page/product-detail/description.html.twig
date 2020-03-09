@@ -11,26 +11,41 @@
 						{% if option.name == "less sugar" %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/less-sugar-70px.svg"/>
+								<div class="font-bold">
+									Less Sugar
+								</div>
 							</div>
 						{% endif %}
 						{% if option.name == "vegan" %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/vegan-70px.svg"/>
+								<div class="font-bold">
+									Vegan
+								</div>
 							</div>
 						{% endif %}
 						{% if option.name == "organic" %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/organic-70px.svg"/>
+								<div class="font-bold">
+									Organic
+								</div>
 							</div>
 						{% endif %}
 						{% if option.name == "lactose free" %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/lactose-free-70px.svg"/>
+								<div class="font-bold">
+									Lactose Free
+								</div>
 							</div>
 						{% endif %}
 						{% if option.name == "soya free" %}
 							<div class="img-icon">
 								<img class="icon-health" src="https://ntheanh201.codes/Shopware-VietkenTheme/assets/soya-free-70px.svg"/>
+								<div class="font-bold">
+									Soya Free
+								</div>
 							</div>
 						{% endif %}
 
@@ -52,6 +67,7 @@
 
 		.img-icon {
 			width: 20%;
+			text-align: center;
 		}
 
 		th.properties-label {
@@ -59,7 +75,13 @@
 		}
 
 		.icon-health {
-			width: 70px;
+			width: 70%;
+		}
+
+		.font-bold {
+			font-family: Roboto, Helvetica, Arial, sans-serif;
+			font-weight: 700;
+			margin-top: 10px;
 		}
 	</style>
 {% endblock %}

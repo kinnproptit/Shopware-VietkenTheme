@@ -3,9 +3,9 @@
 {% block component_product_box_content %}
 	<div
 		class="card-body card-body-fix">
-		{# <pre>
-				{{ dump(product) }}
-			</pre> #}
+		<pre>
+				{{ dump(searchResult.aggregations.elements) }}
+			</pre>
 		{% block component_product_box_badges %}
 			{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
 		{% endblock %}
