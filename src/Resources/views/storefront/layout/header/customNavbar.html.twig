@@ -8,107 +8,106 @@
 						{% sw_include '@VietkenDesign/storefront/layout/header/custom-navigation.html.twig' %}
 					{% endblock %}
 
-		</li>
-		<li class="bg-cl margin-nav">
-			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
-		</li>
-		<li class="bg-cl margin-nav">
-			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
-		</li>
-		<li class="bg-cl margin-nav">
-			<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
-		</li>
-	</ul>
+				</li>
+				<li class="bg-cl margin-nav">
+					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
+				</li>
+				<li class="bg-cl margin-nav">
+					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
+				</li>
+				<li class="bg-cl margin-nav">
+					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
+				</li>
+			</ul>
 
-	<style>
-		.margin-nav {
-			margin: 0 1rem;
-		}
-		.navList {
-			padding: 0;
-			margin: 0;
-			display: flex;
-			justify-content: center;
-			list-style: none;
-		}
+			<style>
+				.navList {
+					padding: 0;
+					margin: 0;
+					display: flex;
+					justify-content: center;
+					list-style: none;
+				}
 
-		.py13 {
-			padding-top: 13px;
-			padding-bottom: 13px;
-		}
+				.py13 {
+					padding: 2px 12px;
+				}
 
-		.navList .bg-cl {
-			background-color: #795548;
-		}
+				.navList .bg-cl {
+					background-color: #795548;
+				}
 
-		.navList .bg-cl:hover {
-			background-color: #ffffff;
-		}
+				.navList .bg-cl:hover {
+					background-color: #ffffff;
+				}
 
-		.navList .bg-cl:hover a {
-			color: black !important;
-			text-decoration: none;
-		}
+				.navList .bg-cl:hover a {
+					color: black !important;
+					text-decoration: none;
+				}
 
-		.navList .bg-cl a:hover{
-			background-color: #ffffff;
-		}
+				.navList .bg-cl a:hover {
+					{
+						# background-color: #ffffff; #
+					}
+				}
 
-		.w-cl {
-			// font-weight: bold;
-			color: white;
-		}
+				.w-cl {
+					// font-weight: bold;
+					color: white;
+				}
 
-		.w-cl:hover {
-			color: #000000;
-		}
+				.w-cl:hover {
+					color: #000000;
+				}
 
-		.submenu {
-			height: auto;
-			max-width: 400px;
-			position: absolute;
-			z-index: 99;
-			display: none;
-			border: 0;
-			background-color: #fefefe;
-			padding: 0.75rem 1.5rem !important;
-			text-align: left;
-		}
+				.submenu {
+					height: auto;
+					max-width: 400px;
+					position: absolute;
+					z-index: 99;
+					display: none;
+					border: 0;
+					background-color: #fefefe;
+					padding: 0.75rem 1.5rem !important;
+					text-align: left;
+				}
 
-		ul.menus {
-			max-width: 75.25rem;
-			width: 100%;
-			border-left: 0;
-			margin: auto;
-			padding-left: 0;
-		}
+				ul.menus {
+					max-width: 75.25rem;
+					width: 100%;
+					border-left: 0;
+					margin: auto;
+					padding-left: 0;
+				}
 
-		.menus li {
-			display: block;
-			width: 100%;
-			font: 12px Arial;
-			padding: 0.75rem;
-		}
+				.menus li {
+					display: block;
+					width: 100%;
+					font: 12px Arial;
+					padding: 0.75rem;
+				}
 
-		#menu li:hover .submenu {
-			display: block;
-		}
+				#menu li:hover .submenu {
+					display: block;
+				}
 
-		#menu li:hover .submenu .w-cl {
-			color: black;
-		}
+				#menu li:hover .submenu .w-cl {
+					color: black;
+				}
 
-		.navList .bg-cl:hover a {
-			color: black;
-		}
+				.navList .bg-cl:hover a {
+					color: black;
+				}
 
-		#menu a {
-			color: white;
-		}
+				#menu a {
+					color: white;
+				}
 
-		.fs-small {
-			font-size: 14px;
-		}
-	</style>
+				.fs-small {
+					font-size: 14px;
+				}
+			</style>
 
-{% endblock %}
+		{% endblock %}
+	</li>

@@ -1,43 +1,58 @@
 {% sw_extends '@parent/storefront/component/product/card/box-standard.html.twig' %}
 
 {% block component_product_box_content %}
-	<div
-		class="card-body card-body-fix">
+<div
+	class="card-body card-body-fix">
+	{# <pre>
+					{{ dump() }}
+				</pre> #}
+	{# {% for item in searchResult.aggregations.elements %}
+		{% if item.name == "properties" %}
 		<pre>
-				{{ dump(searchResult.aggregations.elements) }}
-			</pre>
-		{% block component_product_box_badges %}
-			{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
-		{% endblock %}
+			{{ dump(item.entities.elements) }}
+		</pre>
+		{% for property in item.entities.elements %}
+			{% if property.name == "" %}{% endif %}
+		{% endfor %}
+			{% for property in item.entities.elements.options.elements %}
+				<pre>
+				{{ dump(property) }}
+				</pre>
+			{% endfor %}
+		{% endif %}
+	{% endfor %} #}
+	{% block component_product_box_badges %}
+		{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
+	{% endblock %}
 
-		{% block component_product_box_rich_snippets %}
-			{% sw_include '@Storefront/storefront/component/product/card/meta.html.twig' %}
-		{% endblock %}
+	{% block component_product_box_rich_snippets %}
+		{% sw_include '@Storefront/storefront/component/product/card/meta.html.twig' %}
+	{% endblock %}
 
-		{% block component_product_box_image %}
-			<div
-				class="product-image-wrapper product-image-fix">
-				{# fallback if display mode is not set #}
-				{% set displayMode = displayMode ?: 'standard' %}
+	{% block component_product_box_image %}
+		<div
+			class="product-image-wrapper product-image-fix">
+			{# fallback if display mode is not set #}
+			{% set displayMode = displayMode ?: 'standard' %}
 
-				{# set display mode 'cover' for box-image with standard display mode #}
-				{% if layout == 'image' and displayMode == 'standard' %}
-					{% set displayMode = 'cover' %}
-				{% endif %}
+			{# set display mode 'cover' for box-image with standard display mode #}
+			{% if layout == 'image' and displayMode == 'standard' %}
+				{% set displayMode = 'cover' %}
+			{% endif %}
 
-				<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="{{ name }}" class="product-image-link is-{{ displayMode }}">
-					{% if cover.url %}
-						{% set attributes = {
+			<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="{{ name }}" class="product-image-link is-{{ displayMode }}">
+				{% if cover.url %}
+					{% set attributes = {
                                         'class': 'product-image is-'~displayMode,
                                         'alt': (cover.translated.alt ?: name),
                                         'title': (cover.translated.title ?: name)
                                     } %}
 
-						{% if displayMode == 'cover' or displayMode == 'contain' %}
-							{% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
-						{% endif %}
+					{% if displayMode == 'cover' or displayMode == 'contain' %}
+						{% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+					{% endif %}
 
-						{% sw_thumbnails 'product-image-thumbnails' with {
+					{% sw_thumbnails 'product-image-thumbnails' with {
                                         media: cover,
                                         sizes: {
                                             'xs': '501px',
@@ -47,20 +62,20 @@
                                             'xl': '284px'
                                         }
                                     } %}
-					{% else %}
-						<div class="product-image-placeholder">
-							{% sw_icon 'placeholder' style {
+				{% else %}
+					<div class="product-image-placeholder">
+						{% sw_icon 'placeholder' style {
                                             'size': 'fluid'
                                         } %}
-						</div>
-					{% endif %}
-				</a>
-			</div>
-		{% endblock %}
+					</div>
+				{% endif %}
+			</a>
+		</div>
+	{% endblock %}
 
-		{% block component_product_box_info %}
-			<div class="product-info product-info-fix">
-				{# {% block icons %}
+	{% block component_product_box_info %}
+		<div class="product-info product-info-fix">
+			{# {% block icons %}
 					<div class="health-icons">
 						{% for key, property in product.sortedProperties.elements %}
 							{% if property.name == "Health" %}
@@ -100,15 +115,15 @@
 				{% endblock %} #}
 				{% block component_product_box_rating %}
 					{# {% if shopware.config.detail.showReviews %}
-																											<div class="product-rating">
-																												{% if product.ratingAverage %}
-																													{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
-																					                                                points: product.ratingAverage,
-																					                                                style: 'text-primary'
-																					                                            } %}
-																												{% endif %}
-																											</div>
-																										{% endif %} #}
+																																<div class="product-rating">
+																																	{% if product.ratingAverage %}
+																																		{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+																										                                                points: product.ratingAverage,
+																										                                                style: 'text-primary'
+																										                                            } %}
+																																	{% endif %}
+																																</div>
+																															{% endif %} #}
 				{% endblock %}
 
 				{% block component_product_box_name %}

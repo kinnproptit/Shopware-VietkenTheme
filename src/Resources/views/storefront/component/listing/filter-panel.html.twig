@@ -1,49 +1,73 @@
 {% sw_extends '@parent/storefront/component/listing/filter-panel.html.twig' %}
 
 {% block component_filter_panel %}
-    {% if not sidebar and block %}
-        {% deprecated 'Sidebar parameter missing, please provide bool sidebar parameter. @deprecated tag:v6.2.0' %}
-        {% set sidebar = block.sectionPosition == 'sidebar' %}
-    {% endif %}
+{% if not sidebar and block %}
+	{% deprecated 'Sidebar parameter missing, please provide bool sidebar parameter. @deprecated tag:v6.2.0' %}
+	{% set sidebar = block.sectionPosition == 'sidebar' %}
+{% endif %}
 
-    {% block component_filter_panel_header %}
-        <div class="filter-panel-offcanvas-header">
-            <h3 class="filter-panel-offcanvas-only">{{ "listing.filterTitleText"|trans }}</h3>
+{% block component_filter_panel_header %}
+	<div class="filter-panel-offcanvas-header">
+		<h3 class="filter-panel-offcanvas-only">{{ "listing.filterTitleText"|trans }}</h3>
 
-            <div class="filter-panel-offcanvas-only filter-panel-offcanvas-close js-offcanvas-close">
-                {% sw_icon 'x' style { 'size': 'md' } %}
-            </div>
-        </div>
-    {% endblock %}
+		<div class="filter-panel-offcanvas-only filter-panel-offcanvas-close js-offcanvas-close">
+			{% sw_icon 'x' style { 'size': 'md' } %}
+		</div>
+	</div>
+{% endblock %}
 
-    {# @var listing \Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult #}
-    {% block component_filter_panel_element %}
-        <div class="filter-panel{% if sidebar %} is--sidebar{% endif %}">
-            {% block component_filter_panel_items_container %}
-                <div class="filter-panel-items-container">
+{# @var listing \Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult #}
+{% block component_filter_panel_element %}
+<div class="filter-panel{% if sidebar %} is--sidebar{% endif %}">
 
-                    {# {% block component_filter_panel_item_manufacturer %} #}
-                        
-                        {# @var manufacturers \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
-                        
-                        {# {% set manufacturers = listing.aggregations.get('manufacturer') %}
-                        {% if not manufacturers.entities is empty %}
-                            {% sw_include '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' with {
-                                elements: manufacturers.entities,
-                                sidebar: sidebar,
-                                name: 'manufacturer',
-                                displayName: 'listing.filterManufacturerDisplayName'|trans|sw_sanitize
-                            } %}
-                        {% endif %}
-                    {% endblock %} #}
 
-                    {% block component_filter_panel_item_properties %}
-                        {# @var properties \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
-                        {% set properties = listing.aggregations.get('properties') %}
+	<div class="filter-headline separator-line filter-label d-flex">
+		<div class="headline-label">
+			<span class="line l1"></span>
+			<span class="line l2"></span>
+			<span class="line l3"></span>
+			Filter
+		</div>
+		{% block component_filter_panel_active_container %}
+			<div class="filter-panel-active-container">
+				{% block component_filter_panel_active_container_inner %}{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
 
-                        {% if not properties.entities is empty %}
-                            {% for property in properties.entities %}
-                                {% sw_include '@Storefront/storefront/component/listing/filter/filter-property-select.html.twig' with {
+	{# <button class="button-reset" data-reset="reset" id="reset-filter">
+																	{% block component_filter_panel_active_container %}
+																		<div class="filter-panel-active-container">
+																			{% block component_filter_panel_active_container_inner %}{% endblock %}
+																		</div>
+																	{% endblock %}
+																</button> #}
+
+	{% block component_filter_panel_items_container %}
+	<div class="filter-panel-items-container">
+
+		{# {% block component_filter_panel_item_manufacturer %} #}
+
+			{# @var manufacturers \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
+
+			{# {% set manufacturers = listing.aggregations.get('manufacturer') %}
+																																															                        {% if not manufacturers.entities is empty %}
+																																															                            {% sw_include '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' with {
+																																															                                elements: manufacturers.entities,
+																																															                                sidebar: sidebar,
+																																															                                name: 'manufacturer',
+																																															                                displayName: 'listing.filterManufacturerDisplayName'|trans|sw_sanitize
+																																															                            } %}
+																																															                        {% endif %}
+																																															                    {% endblock %} #}
+
+				{% block component_filter_panel_item_properties %}
+				{# @var properties \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
+				{% set properties = listing.aggregations.get('properties') %}
+
+					{% if not properties.entities is empty %}
+						{% for property in properties.entities %}
+					{% sw_include '@Storefront/storefront/component/listing/filter/filter-property-select.html.twig' with {
                                     elements: property.options,
                                     sidebar: sidebar,
                                     name: 'properties',
@@ -51,11 +75,11 @@
                                     displayType: property.displayType,
                                     pluginSelector: 'filter-property-select'
                                 } %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endblock %}
+				{% endfor %}
+			{% endif %}
+			{% endblock %}
 
-                    {% block component_filter_panel_item_price %}
+				{# {% block component_filter_panel_item_price %}
                         {% set price = listing.aggregations.get('price') %}
 
                         {% if price.min > 0 and price.max > 0 %}
@@ -68,9 +92,9 @@
                                 displayName: 'listing.filterPriceDisplayName'|trans|sw_sanitize,
                             } %}
                         {% endif %}
-                    {% endblock %}
+                    {% endblock %} #}
 
-                    {# {% block component_filter_panel_item_rating %}
+					{# {% block component_filter_panel_item_rating %}
                         {% set rating = listing.aggregations.get('rating') %}
 
                         {% if not rating is empty %}
@@ -81,28 +105,175 @@
                         {% endif %}
                     {% endblock %} #}
 
-                    {% block component_filter_panel_item_shipping_free %}
-                        {% set shippingFree = listing.aggregations.get('shipping-free') %}
+						{% block component_filter_panel_item_shipping_free %}
+						{% set shippingFree = listing.aggregations.get('shipping-free') %}
 
-                        {% if shippingFree.max > 0 %}
-                            {% sw_include '@Storefront/storefront/component/listing/filter/filter-boolean.html.twig' with {
+							{% if shippingFree.max > 0 %}
+						{% sw_include '@Storefront/storefront/component/listing/filter/filter-boolean.html.twig' with {
                                 name: 'shipping-free',
                                 displayName: 'listing.filterFreeShippingDisplayName'|trans|sw_sanitize
                             } %}
-                        {% endif %}
-                    {% endblock %}
-                </div>
-            {% endblock %}
+					{% endif %}
+				{% endblock %}
+			</div>
+		{% endblock %}
 
-            {# <pre>
-                {{ dump(listing) }}
-            </pre> #}
 
-            {% block component_filter_panel_active_container %}
-                <div class="filter-panel-active-container">
-                    {% block component_filter_panel_active_container_inner %}{% endblock %}
-                </div>
-            {% endblock %}
-        </div>
-     {% endblock %}
-{% endblock %}
+	</div>
+	{% endblock %}
+
+		<style>
+
+.headline-label {
+    display: block;
+}
+
+@media (max-width: 991px){
+    .headline-label {
+        display: none !important;
+    }
+}
+
+.filter-headline {
+	font-weight: bold;
+}
+
+.filter-headline .line {
+	display: none;
+	background: #3c3c3e;
+	width: 18px;
+	margin-left: -9px;
+	height: 2px;
+	position: absolute;
+	z-index: 4;
+	left: 24px;
+	border-radius: 4px;
+	transition: all 0.4s;
+}
+
+.filter-headline .line.l1 {
+	top: 19px;
+}
+
+.filter-headline .line.l2 {
+	top: 24px;
+	width: 14px;
+	margin-left: -7px;
+}
+
+.filter-headline .line.l3 {
+	top: 29px;
+	width: 8px;
+	margin-left: -4px;
+}
+
+.filter-panel-active-container {
+	align-items: center;
+	display: flex;
+}
+
+.filter-active {
+	display: none !important;
+}
+
+.filter-range,
+.filter-multi-select {
+	width: 100%;
+}
+
+.filter-panel-item-toggle {
+	width: 100% !important;
+}
+
+.filter-group-wrapper {
+	margin: 0 10px 10px;
+}
+
+.filter-wrapper .filter-group {
+	padding-left: 10px;
+}
+
+.separator-line {
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.filter-checkbox,
+.filter-label {
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.filter-label {
+	justify-content: space-between;
+}
+
+.filter-label {
+	line-height: 52px;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+
+.filter-label a {
+	text-decoration: none;
+}
+
+a.icon-arrow-right {
+	position: relative;
+}
+
+.is-open {
+	filter: alpha(opacity=100);
+	opacity: 1;
+	visibility: visible;
+	margin-top: 0;
+	height: auto;
+}
+
+.filter-wrapper .filter-group-items {
+	padding: 5px 0;
+}
+
+.foldout-content.in,
+.foldout-content.is-open {
+	display: block;
+}
+
+a.icon-arrow-right.is-open::before,
+a.icon-arrow-right[aria-expanded=true]::before {
+	transform-origin: 50%;
+	transform: rotate(-90deg);
+	transition: all 0.3s;
+}
+
+a.icon-arrow-right::before {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	z-index: 0;
+	margin-top: -15px;
+	color: #a3a3a3;
+	font-size: 30px;
+	transform-origin: 50%;
+	transform: rotate(90deg);
+	transition: all 0.3s;
+}
+
+.icon-arrow-right:before {
+	content: "\6a";
+}
+
+.filter-label.is-open .truncate {
+	text-overflow: initial;
+}
+.filter-label .truncate {
+	max-width: 75%;
+	display: block;
+	float: left;
+}
+.truncate {
+	margin: 0 auto;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+</style>{% endblock %}

@@ -152,7 +152,7 @@
 
 		.top-bar-nav-text:hover,
 		.main-navigation-link-text:hover {
-			color: #5fce7d;
+			color: inherit;
 		}
 
 		.col-auto:hover {
@@ -169,6 +169,19 @@
 
 		.cuc-fixes {
 			line-height: 50px;
+		}
+
+		.top-bar-nav-btn.btn:hover,
+		.dropdown.show:hover,
+		.top-bar-nav-btn:hover,
+		.top-bar-list-item:hover
+		{
+			color: #000000 !important;
+		}
+
+		a:hover {
+			text-decoration: none !important;
+			color: #000000;
 		}
 	</style>
 {% endblock %}
