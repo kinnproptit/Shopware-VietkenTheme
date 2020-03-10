@@ -36,12 +36,12 @@
 	</div>
 
 	{# <button class="button-reset" data-reset="reset" id="reset-filter">
-																	{% block component_filter_panel_active_container %}
-																		<div class="filter-panel-active-container">
-																			{% block component_filter_panel_active_container_inner %}{% endblock %}
-																		</div>
-																	{% endblock %}
-																</button> #}
+																		{% block component_filter_panel_active_container %}
+																			<div class="filter-panel-active-container">
+																				{% block component_filter_panel_active_container_inner %}{% endblock %}
+																			</div>
+																		{% endblock %}
+																	</button> #}
 
 	{% block component_filter_panel_items_container %}
 	<div class="filter-panel-items-container">
@@ -51,15 +51,15 @@
 			{# @var manufacturers \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
 
 			{# {% set manufacturers = listing.aggregations.get('manufacturer') %}
-																																															                        {% if not manufacturers.entities is empty %}
-																																															                            {% sw_include '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' with {
-																																															                                elements: manufacturers.entities,
-																																															                                sidebar: sidebar,
-																																															                                name: 'manufacturer',
-																																															                                displayName: 'listing.filterManufacturerDisplayName'|trans|sw_sanitize
-																																															                            } %}
-																																															                        {% endif %}
-																																															                    {% endblock %} #}
+																																																		                        {% if not manufacturers.entities is empty %}
+																																																		                            {% sw_include '@Storefront/storefront/component/listing/filter/filter-multi-select.html.twig' with {
+																																																		                                elements: manufacturers.entities,
+																																																		                                sidebar: sidebar,
+																																																		                                name: 'manufacturer',
+																																																		                                displayName: 'listing.filterManufacturerDisplayName'|trans|sw_sanitize
+																																																		                            } %}
+																																																		                        {% endif %}
+																																																		                    {% endblock %} #}
 
 				{% block component_filter_panel_item_properties %}
 				{# @var properties \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
@@ -125,13 +125,14 @@
 		<style>
 
 .headline-label {
-    display: block;
+	display: block;
+    margin: auto;
 }
 
-@media (max-width: 991px){
-    .headline-label {
-        display: none !important;
-    }
+@media(max-width: 991px) {
+	.headline-label {
+		display: none !important;
+	}
 }
 
 .filter-headline {
@@ -139,7 +140,6 @@
 }
 
 .filter-headline .line {
-	display: none;
 	background: #3c3c3e;
 	width: 18px;
 	margin-left: -9px;
@@ -209,9 +209,9 @@
 
 .filter-label {
 	line-height: 52px;
-	display: block;
 	width: 100%;
 	overflow: hidden;
+	display: flex;
 }
 
 .filter-label a {

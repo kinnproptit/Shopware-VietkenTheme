@@ -4,11 +4,13 @@
 	<div class="filter-label property-label btn{% if sidebar %} btn-block{% endif %}" aria-expanded="false" {% if sidebar %} data-toggle="collapse" data-target="#{{ filterItemId }}" {% else %} data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" {% endif %}>
 
 		{% block component_filter_multi_select_display_name %}
-			{{ displayName }}
+			<div class="filter-name">
+				{{ displayName }}
+			</div>
 		{% endblock %}
 
 		{% block component_filter_multi_select_count %}
-			<span class="filter-multi-select-count"></span>
+			<span class="filter-multi-select-count filter-count"></span>
 		{% endblock %}
 
 		{% block component_filter_multi_select_toggle_icon %}
@@ -36,24 +38,33 @@
 		{% endblock %}
 	</div>
 
-  <style>
-    .dropdown {
-      position: unset;
-    }
+	<style>
+		{
+			# .dropdown {
+				position: unset;
+			} #
+		}
 
-    .custom-dropdown {
-      display: block !important;
-      border: none;
-      position: unset;
-    }
+		.custom-dropdown {
+			display: block !important;
+			border: none;
+			position: unset;
+		}
 
-    .show {
-      display: none !important;
-    }
+		.property-label {
+			text-align: left;
+			padding: 0;
+		}
 
-    .property-label {
-      text-align: left;
-      padding: 0;
-    }
-  </style>
+		.filter-count {
+			border-radius: 4px;
+			background: #28a745;
+			color: #fff;
+			width: 20px;
+			line-height: 20px;
+			text-align: center;
+      margin: auto;
+
+		}
+	</style>
 {% endblock %}
