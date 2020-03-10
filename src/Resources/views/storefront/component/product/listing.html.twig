@@ -9,13 +9,13 @@
 		<div
 			class="cms-element-product-listing-actions row justify-content-between">
 			{# <div class="col-md-auto">
-																																				{% block element_product_listing_pagination_nav_top %}
-																																					{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
-																																	                                    entities: searchResult,
-																																	                                    criteria: searchResult.criteria
-																																	                                } %}
-																																				{% endblock %}
-																																			</div> #}
+																																							{% block element_product_listing_pagination_nav_top %}
+																																								{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+																																				                                    entities: searchResult,
+																																				                                    criteria: searchResult.criteria
+																																				                                } %}
+																																							{% endblock %}
+																																						</div> #}
 
 			<div class="col-md-auto">
 				{% block element_product_listing_sorting %}
@@ -33,7 +33,7 @@
 				<h2 class="align-center cl-accent">Most popular</h2>
 			</header>
 			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center;">
-			{% endif %}
+		{# {% endif %} #}
 			{% for product in searchResult %}
 				{% if product.translated.customFields.custom_top_seller_mark == true %}
 					<div class="cms-listing-col {{ listingColumns }}">
@@ -46,18 +46,19 @@
 					</div>
 				{% endif %}
 			{% endfor %}
+			{% endif %}
 			{% if activeRoute == 'frontend.home.page' %}
 			</div>
 		</section>
-	{% elseif activeRoute == 'frontend.all.product' %}
-		{% for product in searchResult %}
-			<div class="cms-listing-col {{ listingColumns }}">
-				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                            'layout': boxLayout,
-                                            'displayMode': displayMode
-                                        } %}
-			</div>
-		{% endfor %}
+		{# {% elseif activeRoute == 'frontend.all.product' %}
+				{% for product in searchResult %}
+					<div class="cms-listing-col {{ listingColumns }}">
+						{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+		                                            'layout': boxLayout,
+		                                            'displayMode': displayMode
+		                                        } %}
+					</div>
+				{% endfor %} #}
 	{% else %}
 		{% for product in searchResult %}
 			<div class="cms-listing-col {{ listingColumns }}">
