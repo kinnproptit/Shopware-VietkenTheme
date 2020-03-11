@@ -9,13 +9,13 @@
 		<div
 			class="cms-element-product-listing-actions row justify-content-between">
 			{# <div class="col-md-auto">
-					{% block element_product_listing_pagination_nav_top %}
-					{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
-	                                    entities: searchResult,
-	                                    criteria: searchResult.criteria
-	                                } %}
-				{% endblock %}
-			</div> #}
+																	{% block element_product_listing_pagination_nav_top %}
+																	{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+													                                    entities: searchResult,
+													                                    criteria: searchResult.criteria
+													                                } %}
+																{% endblock %}
+															</div> #}
 
 			<div class="col-md-auto">
 				{% block element_product_listing_sorting %}
@@ -49,99 +49,136 @@
 				{% endfor %}
 			{% endif %}
 
-		{% if activeRoute == 'frontend.home.page' %}
-				</div>
-			</section>
-		{% elseif activeRoute == 'frontend.all.product' %}
-			{% for product in searchResult %}
-				<div class="cms-listing-col {{ listingColumns }}">
-					{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+			{% if activeRoute == 'frontend.home.page' %}
+			</div>
+		</section>
+	{% elseif activeRoute == 'frontend.all.product' %}
+		{% for product in searchResult %}
+			<div class="cms-listing-col {{ listingColumns }}">
+				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
 																							'layout': boxLayout,
 																							'displayMode': displayMode
 																					} %}
+			</div>
+		{% endfor %}
+	{% elseif activeRoute == 'frontend.health.needs.regimens' %}
+		<div class="container">
+			<div class="section text-center" data-location="section">
+				<div class="section__header text-center">
+					<h1 class="section__headline headline">Find your regimen.</h1>
 				</div>
-			{% endfor %}
-		{% elseif activeRoute == 'frontend.health.needs.regimens' %}
-			<div class="container">
-				<div class="section text-center" data-location="section">
-						<div class="section__header text-center">
-							<h1 class="section__headline headline">Find your regimen.</h1>
+			</div>
+
+			<aside class="regimens-sidebar" id="faceted-search-container">
+				<nav>
+					<div id="facetedSearch" class="facetedSearch sidebarBlock regiments-facetedSearch">
+						<div id="facetedSearch-navList" class="facetedSearch-navList blocker-container is-open regiments-filter-list">
+							<div class="accordion accordion--navList">
+								<div class="accordion-block">
+									<div id="facetedSearch-content--Regimens" class="accordion-content  is-open ">
+										<ul id="facetedSearch-navList--Regimens" data-facet="Regimens" class="navList" data-has-more-results="false">
+											<li class="navList-item regimen-navList-item">
+												<a href="/regimens/heart-health" class="navList-action navList-action--checkbox active" rel="nofollow" data-regimen="heart-health" style="padding-left: 0 !important;">
+													<img src="https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/regimens/regimen-builder-heart-health.jpg" alt="Heart Health">
+													<span>Heart Health</span>
+												</a>
+											</li>
+											<li class="navList-item regimen-navList-item">
+												<a href="/regimens/energy" class="navList-action navList-action--checkbox" rel="nofollow" data-regimen="joint-and-mobility">
+													<img src="https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/regimens/regimen-builder-joint-and-mobility.jpg" alt="Joint and Mobility">
+													<span>Joint and Mobility</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
 						</div>
-				</div>
-				<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
+					</div>
+				</nav>
+			</aside>
+
+			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
 				<div class="banner banner--offers regimen--offers">
-					<div class="text-shipping"><strong>Free Shipping</strong> on all orders over $50.</div>
+					<div class="text-shipping">
+						<strong>Free Shipping</strong>
+						on all orders over $50.</div>
 				</div>
-					{% for product in searchResult %}
-						{% for label, value in product.translated.customFields %}
-								{% if value is not iterable %}
-									{% if label matches "/^custom_health_needs_*/" %}
-										<div class="cms-listing-col {{ listingColumns }}">
-											{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+				{% for product in searchResult %}
+					{% set count = 0 %}
+					{% for label, value in product.translated.customFields %}
+						{% if value is not iterable %}
+							{% if label matches "/^custom_health_needs_*/" %}
+								{% set count = 1 %}
+							{% endif %}
+						{% endif %}
+
+					{% endfor %}
+					{% if count == 1 %}
+						<div class="cms-listing-col {{ listingColumns }}">
+							{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
 																													'layout': boxLayout,
 																													'displayMode': displayMode
 																											} %}
-										</div>
-									{% endif %}
-								{% endif %}
-
-							{% endfor %}
-					{% endfor %}
-				</div>
-		
+						</div>
+					{% endif %}
+				{% endfor %}
 			</div>
-		{% elseif activeRoute == 'frontend.health.needs.energy' %}
-				<div class="container">
-					<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
-						{% for product in searchResult %}
-							{% for label, value in product.translated.customFields %}
-									{% if value is not iterable %}
-										{% if label == "custom_health_needs_energy" %}
-											<div class="cms-listing-col {{ listingColumns }}">
-												{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-																														'layout': boxLayout,
-																														'displayMode': displayMode
-																												} %}
-											</div>
-										{% endif %}
-									{% endif %}
 
-								{% endfor %}
-						{% endfor %}
-					</div>
-			
-				</div>
-		{% elseif activeRoute == 'frontend.health.needs.heart.health' %}
-				<div class="container">
-					<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
-						{% for product in searchResult %}
-							{% for label, value in product.translated.customFields %}
-									{% if value is not iterable %}
-										{% if label == "custom_health_needs_heart" %}
-											<div class="cms-listing-col {{ listingColumns }}">
-												{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-																														'layout': boxLayout,
-																														'displayMode': displayMode
-																												} %}
-											</div>
-										{% endif %}
-									{% endif %}
-
-								{% endfor %}
-						{% endfor %}
-					</div>
-			
-				</div>
-			{% else %}
+		</div>
+	{% elseif activeRoute == 'frontend.health.needs.energy' %}
+		<div class="container">
+			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
 				{% for product in searchResult %}
-					<div class="cms-listing-col {{ listingColumns }}">
-													{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+					{% for label, value in product.translated.customFields %}
+						{% if value is not iterable %}
+							{% if label == "custom_health_needs_energy" %}
+								<div class="cms-listing-col {{ listingColumns }}">
+									{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																														'layout': boxLayout,
+																														'displayMode': displayMode
+																												} %}
+								</div>
+							{% endif %}
+						{% endif %}
+
+					{% endfor %}
+				{% endfor %}
+			</div>
+
+		</div>
+	{% elseif activeRoute == 'frontend.health.needs.heart.health' %}
+		<div class="container">
+			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
+				{% for product in searchResult %}
+					{% for label, value in product.translated.customFields %}
+						{% if value is not iterable %}
+							{% if label == "custom_health_needs_heart" %}
+								<div class="cms-listing-col {{ listingColumns }}">
+									{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																														'layout': boxLayout,
+																														'displayMode': displayMode
+																												} %}
+								</div>
+							{% endif %}
+						{% endif %}
+
+					{% endfor %}
+				{% endfor %}
+			</div>
+
+		</div>
+	{% else %}
+		{% for product in searchResult %}
+			<div class="cms-listing-col {{ listingColumns }}">
+				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
 																															'layout': boxLayout,
 																															'displayMode': displayMode
 																													} %}
-					</div>
-				{% endfor %}
-		{% endif %}
+			</div>
+		{% endfor %}
+	{% endif %}
 {% endblock %}
 
 {% block element_product_listing_pagination_nav_bottom %}
@@ -157,7 +194,7 @@
 		}
 
 		.banner--offers {
-			margin: 0 -.75rem 2.5rem;
+			margin: 0 -0.75rem 2.5rem;
 			background-color: #F15A29;
 			color: #fff;
 			line-height: 45px;
@@ -166,6 +203,12 @@
 			height: 45px;
 			text-align: center;
 			font-family: Montserrat;
+		}
+
+		.navList-action {
+	    display: flex;
+    	flex-direction: column;
+			align-items: center;
 		}
 	</style>
 
