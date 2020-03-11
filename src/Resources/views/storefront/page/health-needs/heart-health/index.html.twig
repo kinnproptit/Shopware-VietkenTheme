@@ -1,8 +1,119 @@
 {% sw_extends '@parent/storefront/page/content/index.html.twig' %}
 
 {% block base_main_inner %}
-	{# {{ parent() }} #}
-	<div>
-	Heart health
+	<div class="container">
+
+		<section class="hero text-center" data-location="hero" data-preamp="seo-main-hero">
+			<img src="https://cdn11.bigcommerce.com/s-zsd73psd0i/images/stencil/1280x1280/j/hero-heart-health__57271.original.jpg" alt="">
+		</section>
+
+		<div class="section text-center" data-location="section">
+			<div class="row">
+				<div class="large-centered columns">
+					<div class="section__header text-center">
+						<h1 class="section__headline headline">Heart Health</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-size">
+			<p class="section__lead  lead lead--jumbo">Support cardiovascular health by retaining healthy triglyceride levels and healthy blood&nbsp;pressure.*</p>
+			<p class="text-large">Start your new chapter of heart health with a daily regimen of products to support your overall heart health.*</p>
+		</div>
+		<div class="category-action">
+			<a class="button hollow button--jumbo" href="#product-listing-container">Shop Products</a>
+		</div>
+		<div class="content-card image left-image">
+			<div class="media" style="background-image: url('https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/pages/content-heart-health.png'); background-position: center 10%;">&nbsp;</div>
+			<div class="content">
+				<div class="content-header">
+					<h3>How can a New Chapter<sup>®</sup>
+						regimen support your heart health?</h3>
+				</div>
+				<div class="content-body">
+					<p>Heart health starts with a healthy diet of limiting sodium and eating more high fiber, low fat foods, including vegetables, fruits, and whole grains. To further support your heart health, consider taking supplements to keep blood sugar, blood pressure, and cholesterol levels within normal range. Our products are created from whole foods including Fish Oil, Turmeric, Cinnamon, Grape Seed, and Calcium to support your heart health.*</p>
+					<p>Wholemega Whole Fish Oil is clinically proven to improve the Omega-3 Index, help retain healthy triglyceride levels, and promote other studied heart health markers.* Blood Pressure Take Care, uses Grape Seed extract to support healthy blood pressure levels in adults, and Bone Strength Take Care uses Calcium from plants, Vitamin D3, and Vitamin K2 to support and maintain artery health while directing Calcium to your bones.*</p>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="section__headline headline">Featured Heart Health Products</h2>
+		<!-- snippet location categories -->
+		<div class="page">
+			<main class="page-content large-centered" id="product-listing-container">
+				{{ parent() }}
+			</main>
+			<div class="section-faq container">
+				<h2>FAQ</h2>
+				<div class="content-body large-centered">
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What should I take for blood pressure?</strong>
+						</p>
+						<p>To naturally maintain blood pressure, take supplements that include Fish Oil, Garlic, and minerals, such as Magnesium and Calcium.</p>
+						<p>Blood Pressure
+							<em>Take Care</em>
+							includes clinically studied Grape Seed and complementary whole foods, to take to support healthy blood pressure levels.</p>
+					</div>
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What is CoQ-10?</strong>
+						</p>
+						<p>Coenzyme Q-10 is a strong antioxidant that helps maintain healthy levels of cholesterol and supports functioning of the circulatory system and the heart itself.</p>
+					</div>
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What are the benefits of Turmeric?</strong>
+						</p>
+						<p>Turmeric is a renowned herb that helps retain healthy levels of cholesterol to support heart health. It is also known to support a healthy inflammation response.</p>
+					</div>
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What are the benefits of Cinnamon?</strong>
+						</p>
+						<p>Cinnamon helps to retain healthy blood sugar levels and support heart health, and also has strong antioxidant action to support the health of cells.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+	<style>
+		h2,
+		.row-size {
+			text-align: center;
+		}
+
+		.text-large {
+			margin-bottom: 30px;
+		}
+
+		@media(min-width: 1180px) .lead,
+			.text-large {
+				width: 73.333%;
+				margin: 0 auto 16px;
+			}
+
+		media(min-width: 1180px)  .lead,
+		 .text-large {
+			width: 73.333%;
+			margin: 0 auto 16px;
+		}
+		 .lead,
+		 .text-large {
+			margin-bottom: 16px;
+			text-align: center;
+		}
+		@media(min-width: 1180px) .lead--jumbo {
+			font-size: 24px;
+		}
+		@media(min-width: 801px) .lead--jumbo {
+			font-size: 20px;
+		}
+		@media(min-width: 551px) .lead--jumbo {
+			font-size: 18px;
+		}
+	</style>
 {% endblock %}

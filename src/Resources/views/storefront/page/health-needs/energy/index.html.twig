@@ -7,11 +7,9 @@
 		</section>
 
 		<div class="section text-center" data-location="section">
-			<div class="row">
-				<div class="large-centered columns">
-					<div class="section__header text-center">
-						<h1 class="section__headline headline">Energy</h1>
-					</div>
+			<div class="large-centered columns">
+				<div class="section__header text-center">
+					<h1 class="section__headline headline">Energy</h1>
 				</div>
 			</div>
 		</div>
@@ -50,7 +48,7 @@
 		<div class="page">
 			<main class="page-content large-centered" id="product-listing-container">
 
-					{{ parent() }}
+				{{ parent() }}
 
 			</main>
 			<div class="section-faq container">
@@ -75,4 +73,41 @@
 		</div>
 
 	</div>
+
+	<style>
+		h2,
+		.row-size {
+			text-align: center;
+		}
+
+		.text-large {
+			margin-bottom: 30px;
+		}
+
+		@media(min-width: 1180px) .lead,
+			.text-large {
+				width: 73.333%;
+				margin: 0 auto 16px;
+			}
+
+		media(min-width: 1180px)  .lead,
+		 .text-large {
+			width: 73.333%;
+			margin: 0 auto 16px;
+		}
+		 .lead,
+		 .text-large {
+			margin-bottom: 16px;
+			text-align: center;
+		}
+		@media(min-width: 1180px) .lead--jumbo {
+			font-size: 24px;
+		}
+		@media(min-width: 801px) .lead--jumbo {
+			font-size: 20px;
+		}
+		@media(min-width: 551px) .lead--jumbo {
+			font-size: 18px;
+		}
+	</style>
 {% endblock %}
