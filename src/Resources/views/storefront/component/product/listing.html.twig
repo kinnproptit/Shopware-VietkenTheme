@@ -5,17 +5,17 @@
 {% endblock %} #}
 
 {% block element_product_listing_pagination_nav_actions %}
-	{% if activeRoute != 'frontend.home.page' %}
+	{% if activeRoute == 'frontend.all.product' %}
 		<div
 			class="cms-element-product-listing-actions row justify-content-between">
 			{# <div class="col-md-auto">
-																																							{% block element_product_listing_pagination_nav_top %}
-																																								{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
-																																				                                    entities: searchResult,
-																																				                                    criteria: searchResult.criteria
-																																				                                } %}
-																																							{% endblock %}
-																																						</div> #}
+					{% block element_product_listing_pagination_nav_top %}
+					{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+	                                    entities: searchResult,
+	                                    criteria: searchResult.criteria
+	                                } %}
+				{% endblock %}
+			</div> #}
 
 			<div class="col-md-auto">
 				{% block element_product_listing_sorting %}
@@ -32,50 +32,120 @@
 			<header class="col-md-12">
 				<h2 class="align-center cl-accent">Most popular</h2>
 			</header>
-			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center;">
-		{# {% endif %} #}
-			{% for product in searchResult %}
-				{% if product.translated.customFields.custom_top_seller_mark == true %}
-					<div class="cms-listing-col {{ listingColumns }}">
-						{% block element_product_listing_box %}
-							{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+			<div
+				class="row cms-listing-row js-listing-wrapper" style="justify-content: center; margin: 2.5rem -.75rem 0;">
+				{# {% endif %} #}
+				{% for product in searchResult %}
+					{% if product.translated.customFields.custom_top_seller_mark == true %}
+						<div class="cms-listing-col {{ listingColumns }}">
+							{% block element_product_listing_box %}
+								{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
                                             'layout': boxLayout,
                                             'displayMode': displayMode
                                         } %}
-						{% endblock %}
-					</div>
-				{% endif %}
-			{% endfor %}
+							{% endblock %}
+						</div>
+					{% endif %}
+				{% endfor %}
 			{% endif %}
-			{% if activeRoute == 'frontend.home.page' %}
+
+		{% if activeRoute == 'frontend.home.page' %}
+				</div>
+			</section>
+		{% elseif activeRoute == 'frontend.all.product' %}
+			{% for product in searchResult %}
+				<div class="cms-listing-col {{ listingColumns }}">
+					{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																							'layout': boxLayout,
+																							'displayMode': displayMode
+																					} %}
+				</div>
+			{% endfor %}
+		{% elseif activeRoute == 'frontend.health.needs.regimens' %}
+			<div class="container">
+				<div class="section text-center" data-location="section">
+						<div class="section__header text-center">
+							<h1 class="section__headline headline">Find your regimen.</h1>
+						</div>
+				</div>
+				<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
+				<div class="banner banner--offers regimen--offers">
+					<div class="text-shipping"><strong>Free Shipping</strong> on all orders over $50.</div>
+				</div>
+					{% for product in searchResult %}
+						{% for label, value in product.translated.customFields %}
+								{% if value is not iterable %}
+									{% if label matches "/^custom_health_needs_*/" %}
+										<div class="cms-listing-col {{ listingColumns }}">
+											{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																													'layout': boxLayout,
+																													'displayMode': displayMode
+																											} %}
+										</div>
+									{% endif %}
+								{% endif %}
+
+							{% endfor %}
+					{% endfor %}
+				</div>
+		
 			</div>
-		</section>
-		{# {% elseif activeRoute == 'frontend.all.product' %}
+		{% elseif activeRoute == 'frontend.health.needs.energy' %}
+				<div class="container">
+					<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
+						{% for product in searchResult %}
+							{% for label, value in product.translated.customFields %}
+									{% if value is not iterable %}
+										{% if label == "custom_health_needs_energy" %}
+											<div class="cms-listing-col {{ listingColumns }}">
+												{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																														'layout': boxLayout,
+																														'displayMode': displayMode
+																												} %}
+											</div>
+										{% endif %}
+									{% endif %}
+
+								{% endfor %}
+						{% endfor %}
+					</div>
+			
+				</div>
+			{% else %}
 				{% for product in searchResult %}
 					<div class="cms-listing-col {{ listingColumns }}">
-						{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-		                                            'layout': boxLayout,
-		                                            'displayMode': displayMode
-		                                        } %}
+													{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																															'layout': boxLayout,
+																															'displayMode': displayMode
+																													} %}
 					</div>
-				{% endfor %} #}
-	{% else %}
-		{% for product in searchResult %}
-			<div class="cms-listing-col {{ listingColumns }}">
-				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                            'layout': boxLayout,
-                                            'displayMode': displayMode
-                                        } %}
-			</div>
-		{% endfor %}
-	{% endif %}
+				{% endfor %}
+		{% endif %}
 {% endblock %}
 
 {% block element_product_listing_pagination_nav_bottom %}
-	{% if activeRoute != 'frontend.home.page' %}
+	{% if activeRoute == 'frontend.all.product' %}
 		{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
                         entities: searchResult,
                         criteria: searchResult.criteria
                     } %}
 	{% endif %}
+	<style>
+		.text-shipping {
+			text-transform: uppercase;
+		}
+
+		.banner--offers {
+			margin: 0 -.75rem 2.5rem;
+			background-color: #F15A29;
+			color: #fff;
+			line-height: 45px;
+			font-size: 18px;
+			text-transform: uppercase;
+			height: 45px;
+			text-align: center;
+			font-family: Montserrat;
+		}
+	</style>
+
 {% endblock %}

@@ -1,8 +1,78 @@
 {% sw_extends '@parent/storefront/page/content/index.html.twig' %}
 
 {% block base_main_inner %}
-	{# {{ parent() }} #}
-	<div>
-	Energy
+	<div class="container">
+		<section class="hero text-center" data-location="hero" data-preamp="seo-main-hero">
+			<img src="https://cdn11.bigcommerce.com/s-zsd73psd0i/images/stencil/1280x1280/v/hero-energy__59108.original.jpg" alt="">
+		</section>
+
+		<div class="section text-center" data-location="section">
+			<div class="row">
+				<div class="large-centered columns">
+					<div class="section__header text-center">
+						<h1 class="section__headline headline">Energy</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-size">
+			<p class="section__lead  lead lead--jumbo">Revitalize your life, without added sugars or calories.</p>
+			<p class="text-large">Maintain consistent energy with New Chapter<sup>®</sup>’s whole-food nutrients and herbs.* Skip the extra cups of coffee and sugary sodas, and energize your body the way Nature intended.</p>
+		</div>
+		<div class="category-action">
+			<a class="button hollow button--jumbo" href="#product-listing-container">Shop Products</a>
+		</div>
+		<div class="content-card image left-image">
+			<div class="media" style="background-image: url('https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/pages/content-energy.png'); background-position: center 10%;">&nbsp;</div>
+			<div class="content">
+				<div class="content-header">
+					<h3>Living life to its fullest isn’t always easy.</h3>
+				</div>
+				<div class="content-body">
+					<p>We probably all experience low energy at some point – feeling sluggish, unmotivated, and just plain tired. An energy rush works for a little bit, but then leaves you crashing. With New Chapter in your daily routine, you can avoid this roller coaster ride and enjoy balanced energy levels.*</p>
+				</div>
+			</div>
+		</div>
+		<div class="content-card image right-image">
+			<div class="media" style="background-image: url('https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/pages/content-energy-2.png'); background-position: center 10%;">&nbsp;</div>
+			<div class="content">
+				<div class="content-header">
+					<h3>Your demanding schedule deserves your full attention.</h3>
+				</div>
+				<div class="content-body">
+					<p>Instead of reaching for a chemical-filled energy drink every afternoon, you can maintain your energy levels with the help of daily multivitamins made with Non-GMO Project Verified ingredients.* With New Chapter energy support, you won’t deal with an energy drink’s sugar crash. Our supplements are made with whole-food, fermented vitamins, so you'll get more of the nutrients needed to support your mitochondria – the powerhouse of your cells – in supplying your daily energy.*</p>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="section__headline headline">Featured Energy Products</h2>
+		<div class="page">
+			<main class="page-content large-centered" id="product-listing-container">
+
+					{{ parent() }}
+
+			</main>
+			<div class="section-faq container">
+				<h2>FAQ</h2>
+				<div class="content-body large-centered">
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What vitamins should I take for energy?</strong>
+						</p>
+						Fermented B vitamins help your body convert proteins, fats and carbs into energy, making multivitamins and a B Complex key to maintaining your energy.* Our B-vitamins are fermented, making them a great addition for your overall energy levels. New Chapter’s Perfect Energy multivitamin is crafted with complementary herbs such as Maca, organic Green Tea, and organic American Ginseng.
+						<p class="legal">Certified Organic by International Certification Services, Inc., Medina, ND, U.S.A.</p>
+					</div>
+					<div class="faq-question">
+						<p class="strong-text">
+							<strong>What are natural sources of energy?</strong>
+						</p>
+						<p>Foods such as brown rice, spinach, and apples all have nutrients that can help keep you energized.</p>
+						<p>New Chapter supplements are a great way to ensure you body gets balanced levels of energy.* Our Coenzyme B Food Complex, Perfect Energy™ Multivitamin, and Rhodiola Force 100 and 300 deliver phytonutrients and vitamins that are essential to keeping you feeling energized.*</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 {% endblock %}
