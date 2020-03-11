@@ -12,5 +12,21 @@
                 <argument type="service" id="service_container"/>
             </call>
         </service>
+
+        <service id="VietkenDesign\Storefront\Controller\HealthNeedsController" public="true">
+            <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="VietkenDesign\Storefront\Controller\AboutUsController" public="true">
+            <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
     </services>
 </container>

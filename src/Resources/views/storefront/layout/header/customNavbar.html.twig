@@ -11,15 +11,34 @@
 				</li>
 				<li class="bg-cl margin-nav">
 					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/health-needs">Gesundheit</a>
-				</li>
-				{# <li class="bg-cl margin-nav">
-					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
-				</li> #}
+					<div class="submenu">
+						<ul class="menus">
+
+							<div class="main-navigation" id="mainNavigation" data-flyout-menu="true">
+								<nav class="nav main-navigation-menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" style="flex-direction: column;">
+									<a class="bl-cl nav-link main-navigation-link home-link" href="/all-product" itemprop="url" title="All Product">
+										<div class="main-navigation-link-text">
+											<span itemprop="name">All Product</span>
+										</div>
+									</a>
+
+
+									<a class="bl-cl nav-link main-navigation-link" href="http://localhost:8000/Industrial/" itemprop="url" data-flyout-menu-trigger="5c263e6f504442979031cf8cb1d3c9ab" title="Industrial">
+										<div class="main-navigation-link-text">
+											<span itemprop="name">Industrial</span>
+										</div>
+									</a>
+								</nav>
+							</ul>
+						</div>
+
+					</li>{# <li class="bg-cl margin-nav">
+																<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/ingredients" exact>Zutaten</a>
+															</li> #}</li>
 				<li class="bg-cl margin-nav">
-					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="i/about-us" exact>Über uns</a>
+					<a class="block px25 py13 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl" href="/about-us" exact>Über uns</a>
 				</li>
 			</ul>
-
 			<style>
 				.navList {
 					padding: 0;
@@ -43,7 +62,7 @@
 
 				.navList .bg-cl:hover a {
 					color: black !important;
-					text-decoration: none;
+					text-decoration: none !important;
 				}
 
 				.navList .bg-cl a:hover {
@@ -108,6 +127,5 @@
 					font-size: 14px;
 				}
 			</style>
-
 		{% endblock %}
 	</li>

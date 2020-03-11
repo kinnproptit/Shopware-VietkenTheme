@@ -1,4 +1,4 @@
-<footer class="{ 'brdr-top-1 brdr-cl-secondary': isCheckoutPage }">
+<footer class="brdr-top-1 brdr-cl-secondary">
 	{# <div class="flex brdr-bottom-1 brdr-cl-secondary">
 		{% sw_include '@VietkenDesign/storefront/layout/footer/newsletter.html.twig' %}
 	</div> #}
@@ -92,6 +92,12 @@
 </footer>
 <style>
 
+	.brdr-top-1 {
+    border-top-width: 1px;
+    border-top-style: solid;
+		border-color: #e0e0e0;
+	}
+
 	.pb60 {
 		padding-bottom: 60px;
 	}
@@ -115,6 +121,14 @@
 		transition: 0.3s all;
 		width: 40px;
 		height: 40px;
+	}
+
+	footer a {
+		text-decoration: none;
+	}
+
+	footer a:hover {
+		color: #000000;
 	}
 
 	.social-icon {
