@@ -1,32 +1,64 @@
 {% sw_extends '@parent/storefront/page/content/index.html.twig' %}
 
 {% block base_main_inner %}
+  {% if activeRoute == 'frontend.home.page' %}
+    {% sw_include '@VietkenDesign/storefront/page/content/headImage.html.twig'
+    %}
 
-	{% if activeRoute == 'frontend.home.page' %}
-		{% sw_include '@VietkenDesign/storefront/page/content/headImage.html.twig' %}
+    {% block health_needs %}
+      <section class="container px15"
+        style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 8rem;">
+        <div>
+          <header class="col-md-12">
+            <h2 class="align-center cl-accent">
+              Support for your health needs.
+            </h2>
+            <p class="align-center cl-accent">
+              We believe nature knows what's best, and that's why our passion is
+              in helping you meet your goals and stay well the natural way.
+            </p>
+          </header>
+        </div>
+        {% sw_include '@VietkenDesign/storefront/page/content/healthSlider.html.twig'
+        %}
+      </section>
+    {% endblock %}
+  {% endif %}
 
-		{% block health_needs %}
-			<section class="container px15" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 8rem;">
-				<div>
-					<header class="col-md-12">
-						<h2 class="align-center cl-accent">Support for your health needs.</h2>
-						<p class="align-center cl-accent">We believe nature knows what's best, and that's why our passion is in helping you meet your goals and stay well the natural way.</p>
-					</header>
-				</div>
-				{% sw_include '@VietkenDesign/storefront/page/content/healthSlider.html.twig' %}
-
-			</section>
-		{% endblock %}
-	{% endif %}
-
-	{{ parent() }}
-
-	<style>
-		.cl-accent {
-			color: #4f4f4f;
+  {% block page_content %}
+    <div class="breadcrumb cms-breadcrump container">
+      {% block cms_breadcrumb %}
+        {% sw_include '@Storefront/storefront/component/listing/breadcrumb.html.twig'
+          with
+          {
+            navigationTree: page.header.navigation.tree,
+            category: page.header.navigation.active
+          }
+          only
+        %}
+      {% endblock %}
+    </div>
+    <div class="cms-page {% if activeRoute == 'frontend.navigation.page' %}d-flex container{% endif %}">
+      {% block page_content_blocks %}
+        {% sw_include '@Storefront/storefront/page/content/detail.html.twig'
+          with
+          {
+            cmsPage: page.cmsPage
+          }
+        %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+  <style>
+    .cl-accent { color: #4f4f4f; } .align-center { text-align: center; }
+		.d-flex {
+			display: flex;
 		}
-		.align-center {
-			text-align: center;
+
+		@media (max-width: 991px){
+			.d-flex {
+				flex-wrap: wrap;
+			}
 		}
-	</style>
+  </style>
 {% endblock %}

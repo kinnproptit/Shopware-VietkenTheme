@@ -36,7 +36,7 @@
 				class="row cms-listing-row js-listing-wrapper" style="justify-content: center; margin: 2.5rem -.75rem 0;">
 				{# {% endif %} #}
 				{% for product in searchResult %}
-					{% if product.translated.customFields.custom_top_seller_mark == true %}
+					{% if product.translated.customFields.custom_top_seller_mark %}
 						<div class="cms-listing-col {{ listingColumns }}">
 							{% block element_product_listing_box %}
 								{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
@@ -103,25 +103,55 @@
 				<div class="banner banner--offers regimen--offers">
 					<div class="text-shipping">
 						<strong>Free Shipping</strong>
-						on all orders over $50.</div>
+						on all orders over 100 €.</div>
 				</div>
 				{% for product in searchResult %}
+					{# 
 					{% set count = 0 %}
 					{% for label, value in product.translated.customFields %}
 						{% if value is not iterable %}
-							{% if label matches "/^custom_health_needs_*/" %}
+							{% if label == 'custom_health_needs_heart' or label == 'custom_health_needs_energy' %}
 								{% set count = 1 %}
+									<div class="cms-listing-col {{ listingColumns }}">
+										{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																																'layout': boxLayout,
+																																'displayMode': displayMode
+																														} %}
+									</div>
+
 							{% endif %}
 						{% endif %}
 
-					{% endfor %}
-					{% if count == 1 %}
+					{% endfor %} #}
+					{# {% if count == 1 %}
 						<div class="cms-listing-col {{ listingColumns }}">
 							{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
 																													'layout': boxLayout,
 																													'displayMode': displayMode
 																											} %}
 						</div>
+					{% endif %} #}
+					{# <pre>
+						{{ dump(product.translated.customFields) }}
+					</pre> #}
+					{# {% set count = 0 %} #}
+					{% if product.translated.customFields.custom_health_needs_heart %}
+						<div class="cms-listing-col {{ listingColumns }}">
+										{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																																'layout': boxLayout,
+																																'displayMode': displayMode
+																														} %}
+						</div>
+						{# {% set count = 1 %} #}
+					{% endif %}
+					{% if product.translated.customFields.custom_health_needs_energy %}
+						<div class="cms-listing-col {{ listingColumns }}">
+										{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+																																'layout': boxLayout,
+																																'displayMode': displayMode
+																														} %}
+						</div>
+						{# {% set count = 1 %} #}
 					{% endif %}
 				{% endfor %}
 			</div>
@@ -131,19 +161,14 @@
 		<div class="container">
 			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
 				{% for product in searchResult %}
-					{% for label, value in product.translated.customFields %}
-						{% if value is not iterable %}
-							{% if label == "custom_health_needs_energy" %}
-								<div class="cms-listing-col {{ listingColumns }}">
-									{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-																														'layout': boxLayout,
-																														'displayMode': displayMode
-																												} %}
-								</div>
-							{% endif %}
-						{% endif %}
-
-					{% endfor %}
+					{% if product.translated.customFields.custom_health_needs_energy %}
+						<div class="cms-listing-col {{ listingColumns }}">
+								{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                            'layout': boxLayout,
+                                            'displayMode': displayMode
+                                        } %}
+						</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 
@@ -152,19 +177,14 @@
 		<div class="container">
 			<div class="row cms-listing-row js-listing-wrapper" style="justify-content: center">
 				{% for product in searchResult %}
-					{% for label, value in product.translated.customFields %}
-						{% if value is not iterable %}
-							{% if label == "custom_health_needs_heart" %}
-								<div class="cms-listing-col {{ listingColumns }}">
-									{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-																														'layout': boxLayout,
-																														'displayMode': displayMode
-																												} %}
-								</div>
-							{% endif %}
-						{% endif %}
-
-					{% endfor %}
+					{% if product.translated.customFields.custom_health_needs_heart %}
+						<div class="cms-listing-col {{ listingColumns }}">
+								{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                            'layout': boxLayout,
+                                            'displayMode': displayMode
+                                        } %}
+						</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 

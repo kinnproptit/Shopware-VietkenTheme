@@ -1,7 +1,7 @@
 {% sw_extends '@parent/storefront/block/cms-block-sidebar-filter.html.twig' %}
 
 {% block block_sidebar_filter %}
-	{% if activeRoute == 'frontend.all.product' %}
+	{% if activeRoute == 'frontend.all.product' or activeRoute == 'frontend.navigation.page' %}
 		{% set element = block.slots.getSlot('content') %}
 		{% set columns = 1 %}
 

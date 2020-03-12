@@ -1,0 +1,12 @@
+{% sw_extends '@parent/storefront/block/cms-block-category-navigation.html.twig' %}
+
+{% block block_category_navigation %}
+    {% set element = block.slots.getSlot('content') %}
+
+    <div class="col-12" data-cms-element-id="{{ element.id }}" {% if element.id == 'f50389b63f8e4d27a333445c5420ae6d' %}style="display: none"{% endif %}
+    >
+        {% block block_text_inner %}
+            {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+        {% endblock %}
+    </div>
+{% endblock %}
