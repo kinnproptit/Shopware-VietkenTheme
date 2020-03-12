@@ -18,8 +18,7 @@
 
 {# @var listing \Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult #}
 {% block component_filter_panel_element %}
-<div class="filter-panel{% if sidebar %} is--sidebar{% endif %}">
-
+<div class="filter-panel{% if sidebar %} is--sidebar{% endif %} no-filter-hide">
 
 	<div class="filter-headline separator-line filter-label d-flex">
 		<div class="headline-label">
@@ -64,9 +63,17 @@
 				{% block component_filter_panel_item_properties %}
 				{# @var properties \Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\EntityResult #}
 				{% set properties = listing.aggregations.get('properties') %}
-
+						{% if properties.entities|length == 0 %}
+								<style>
+									.no-filter-hide {
+										display: none;
+									}
+								</style>
+						{% endif %}
 					{% if not properties.entities is empty %}
+
 						{% for property in properties.entities %}
+							{% set count = count + 1 %}
 					{% sw_include '@Storefront/storefront/component/listing/filter/filter-property-select.html.twig' with {
                                     elements: property.options,
                                     sidebar: sidebar,
@@ -276,4 +283,5 @@ a.icon-arrow-right::before {
 	-webkit-line-clamp: 3;
 	overflow: hidden;
 }
+
 </style>{% endblock %}
