@@ -12,8 +12,8 @@
     "extra": {
         "shopware-plugin-class": "VietkenDesign\\VietkenDesign",
         "label": {
-            "de-DE": "Skeleton plugin",
-            "en-GB": "Skeleton plugin"
+            "de-DE": "VietkenTech Theme",
+            "en-GB": "VietkenTech Theme"
         }
     }
 }
